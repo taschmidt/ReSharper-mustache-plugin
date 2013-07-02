@@ -1,0 +1,13 @@
+*.swp
+*.suo
+*.user
+*.vsp
+*.psess
+*.~vsd
+_ReSharper.*
+*App_Data*
+*.scmp
+~*
+*.user
+bin/
+obj/
