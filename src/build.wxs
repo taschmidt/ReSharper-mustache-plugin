@@ -1,0 +1,65 @@
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="*"
+    Name="ReSharper.Mustache.Plugin"
+    Language="1033"
+    Version="1.0.0.0"
+    UpgradeCode="7281A36A-F552-40BC-9D0B-6E63540D0576"
+    Manufacturer="Tim Schmidt">
+ 
+    <Package Description="#Description"
+      Comments="Comments"
+      InstallerVersion="200"
+      Compressed="yes"
+      InstallScope="perUser"
+      ShortNames="no" AdminImage="no" InstallPrivileges="elevated"/>
+ 
+    <InstallExecuteSequence>
+      <RemoveExistingProducts After="InstallInitialize" />
+    </InstallExecuteSequence>
+ 
+    <Media Id="1" Cabinet="contents.cab" EmbedCab="yes" CompressionLevel="high"/>
+ 
+    <Icon Id="ProductIcon" SourceFile="MyPlugin.ico"/>
+    <Property Id="ARPPRODUCTICON">ProductIcon</Property>
+ 
+    <Property Id="RESHARPERDIR2010" Secure="yes">
+      <RegistrySearch Id="RSInstallRegistry2010" Root="HKLM" Key="Software\JetBrains\ReSharper\v7.0\vs10.0"
+        Name="InstallDir" Type="directory"/>
+    </Property>
+ 
+    <Property Id="RESHARPERDIR2012" Secure="yes">
+      <RegistrySearch Id="RSInstallRegistry2012" Root="HKLM" Key="Software\JetBrains\ReSharper\v7.0\vs11.0"
+        Name="InstallDir" Type="directory"/>
+    </Property>
+ 
+    <Condition Message='ReSharper 7.0 and Visual Studio 2010 or 2012 are required to proceed with the installation.'>
+      Installed OR (RESHARPERDIR2010 OR RESHARPERDIR2012)
+    </Condition>
+ 
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="LocalAppDataFolder">
+        <Directory Id="D.AppDataFolder.JetBrains" Name="JetBrains">
+          <Directory Id="D.AppDataFolder.JetBrains.ReSharper" Name="ReSharper">
+            <Directory Id="D.AppDataFolder.JetBrains.ReSharper.vAny" Name="vAny">
+              <Directory Id="D.AppDataFolder.JetBrains.ReSharper.vAny.Plugins" Name="Plugins">
+                <Directory Id="R.Plugins.MyPlugin.2010" Name="My Plugin">
+                  <Component Id="C.Everything" Guid="6D9F85FB-1BE2-488F-BCE7-DDC43B0EDBB0">
+                    <File Source="src\ReSharper.Mustache.Plugin\bin\Release\ReSharper.Mustache.Plugin.dll" />
+                  </Component>
+                </Directory>
+              </Directory>
+            </Directory>
+          </Directory>
+        </Directory>
+      </Directory>
+    </Directory>
+ 
+    <Feature Id="Complete" Title="Everything" Description="Everything" Level="1">
+      <ComponentRef Id="C.Everything"/>
+    </Feature>
+ 
+    <UI>
+      <UIRef Id="WixUI_Minimal" />
+    </UI>
+  </Product>
+</Wix>
