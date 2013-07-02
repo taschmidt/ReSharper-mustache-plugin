@@ -30,14 +30,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="JetBrains.Platform.ReSharper.ProjectModel">
-      <HintPath>C:\Program Files (x86)\JetBrains\ReSharper\v7.1\Bin\JetBrains.Platform.ReSharper.ProjectModel.dll</HintPath>
+    <Reference Include="JetBrains.Platform.ReSharper.Metadata, Version=7.1.1000.900, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\JetBrains\JetBrains.Platform.ReSharper.Metadata.dll</HintPath>
     </Reference>
-    <Reference Include="JetBrains.Platform.ReSharper.Util">
-      <HintPath>C:\Program Files (x86)\JetBrains\ReSharper\v7.1\Bin\JetBrains.Platform.ReSharper.Util.dll</HintPath>
+    <Reference Include="JetBrains.Platform.ReSharper.ProjectModel, Version=7.1.1000.900, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\JetBrains\JetBrains.Platform.ReSharper.ProjectModel.dll</HintPath>
     </Reference>
-    <Reference Include="JetBrains.ReSharper.Feature.Services.Asp">
-      <HintPath>C:\Program Files (x86)\JetBrains\ReSharper\v7.1\Bin\JetBrains.ReSharper.Feature.Services.Asp.dll</HintPath>
+    <Reference Include="JetBrains.Platform.ReSharper.Util, Version=7.1.1000.900, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\JetBrains\JetBrains.Platform.ReSharper.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Feature.Services.Asp, Version=7.1.1000.900, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\JetBrains\JetBrains.ReSharper.Feature.Services.Asp.dll</HintPath>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Psi.Web, Version=7.1.1000.900, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\JetBrains\JetBrains.ReSharper.Psi.Web.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
