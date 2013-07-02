@@ -7,6 +7,7 @@ using JetBrains.Util;
 
 namespace ReSharper.Mustache.Plugin
 {
+    [MvcViewResolver]
     public class MvcViewMustacheResolver : IMvcViewResolver
     {
         private static readonly AssemblyNameInfo NustacheAssembly = new AssemblyNameInfo("Nustache.Core");
