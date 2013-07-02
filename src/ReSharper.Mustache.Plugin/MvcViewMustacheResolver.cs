@@ -7,6 +7,10 @@ namespace ReSharper.Mustache.Plugin
 {
     public class MvcViewMustacheResolver : IMvcViewResolver
     {
+        static MvcViewMustacheResolver()
+        {
+            
+        }
         public bool IsApplicable(IProject project)
         {
             throw new NotImplementedException();
