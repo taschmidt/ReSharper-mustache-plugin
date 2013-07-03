@@ -1,7 +1,7 @@
 ReSharper-mustache-plugin
 =========================
 
-Plugin for JetBrains ReSharper to allow it to find mustache views
+Plugin for JetBrains ReSharper to allow it to find mustache views in MVC project.
 
 Installation
 ============
