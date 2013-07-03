@@ -46,21 +46,15 @@
   </target>
 
   <target name="package" depends="clean,compile">
-    
-  </target>
-  
-  <!--<target name="package">
-    <property name="p.proj" value="MarketWatch.WP8"/>
-    <echo message="...creating PRODUCTION zip file..."/>
-    <mkdir dir="${dist.dir.production}" failonerror="false"/>
-    <property name="zip.filename" value="${dist.dir.production}${p.proj}-v${version}.zip" if="${build.configuration == 'Release'}"/>
-    <property name="zip.filename" value="${dist.dir.production}${p.proj}-${string::to-lower(build.configuration)}-v${version}.zip" if="${build.configuration != 'Release'}"/>
+    <echo message="...creating zip file..."/>
+    <mkdir dir="${build.dir}" failonerror="false"/>
+    <property name="zip.filename" value="${build.dir}ReSharper.Mustache.Plugin-v${version}.zip"/>
     <zip zipfile="${zip.filename}">
-      <fileset basedir="${out.release.dir}">
-        <include name="*.xap" />
+      <fileset basedir="${out.dir}">
+        <include name="*.*" />
       </fileset>
     </zip>
-  </target>-->
+  </target>
 
   <target name="build" depends="clean,compile">
   </target>
