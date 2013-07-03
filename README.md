@@ -1,7 +1,7 @@
 ReSharper-mustache-plugin
 =========================
 
-Plugin for JetBrains ReSharper to allow it to find mustache views in MVC project.
+Plugin for JetBrains ReSharper to allow it to find mustache views in MVC project.  This can come in very handy since it enables ReSharper to find .mustache view files for direct linking (i.e. Ctrl+Click navigation) and so ReSharper doesn't show ugly red errors because it can't find the view.
 
 Installation
 ============
