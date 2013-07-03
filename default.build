@@ -39,7 +39,7 @@
 
   <target name="compile" depends="common-assembly-info" description="compiles the source code">
     <msbuild project="src\\ReSharper-Mustache-Plugin.sln" target="build">
-      <property name="OutDir" value="${out.dir}"/>
+      <property name="OutDir" value="${out.dir}\\Mustache-plugin"/>
       <property name="Configuration" value="${build.configuration}" />
       <property name="Platform" value="Any CPU" />
     </msbuild>
@@ -51,7 +51,7 @@
     <property name="zip.filename" value="${build.dir}ReSharper.Mustache.Plugin-v${version}.zip"/>
     <zip zipfile="${zip.filename}">
       <fileset basedir="${out.dir}">
-        <include name="*.*" />
+        <include name="**" />
       </fileset>
     </zip>
   </target>

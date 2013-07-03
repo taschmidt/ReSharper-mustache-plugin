@@ -11,10 +11,10 @@ using System.Reflection;
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: AssemblyVersionAttribute("1.0.0.9")]
-[assembly: AssemblyFileVersionAttribute("1.0.0.9")]
+[assembly: AssemblyVersionAttribute("1.0.0.11")]
+[assembly: AssemblyFileVersionAttribute("1.0.0.11")]
 [assembly: AssemblyCopyrightAttribute("Copyright © 2013 Tim Schmidt")]
 [assembly: AssemblyCompanyAttribute("Tim Schmidt")]
 [assembly: AssemblyProductAttribute("ReSharper Mustache plugin")]
-[assembly: AssemblyDescriptionAttribute("07/02/2013 22:35:18")]
+[assembly: AssemblyDescriptionAttribute("07/02/2013 22:44:02")]
 
