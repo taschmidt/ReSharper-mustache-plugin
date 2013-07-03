@@ -1,0 +1,68 @@
+<project name="ReSharper.Mustache.Plugin" default="package" basedir=".">
+  <description>The ReSharper.Mustache.Plugin Build</description>
+
+  <property name="build.dir" 						value="${project::get-base-directory()}\\build\\"/>
+  <property name="build.date"           value="${datetime::now()}"/>
+  <property name="build.configuration"  value="Release" />
+  <property name="out.dir"              value="${build.dir}\\out"/>
+  
+  <loadtasks assembly="tools\nant-contrib-0.85\bin\NAnt.Contrib.Tasks.dll"/>
+
+  <version buildtype="NoIncrement" revisiontype="Increment"/>
+  <property name="version" value="${buildnumber.version}"/>
+  
+  <echo message="build.date: ${build.date}"/>
+  <echo message="build.configuration: ${build.configuration}"/>
+
+  <target name="clean" description="remove all generated files">
+    <delete dir="${build.dir}" failonerror="false"/>
+  </target>
+
+  <target name="common-assembly-info">
+    <if test="${property::exists('version')}">
+      <asminfo output="${project::get-base-directory()}\\src\\CommonAssemblyInfo.cs" language="CSharp">
+        <imports>
+          <import namespace="System" />
+          <import namespace="System.Reflection" />
+        </imports>
+        <attributes>
+          <attribute type="AssemblyVersionAttribute" value="${version}" />
+          <attribute type="AssemblyFileVersionAttribute" value="${version}" />
+          <attribute type="AssemblyCopyrightAttribute" value="Copyright © ${datetime::get-year(build.date)} Tim Schmidt" />
+          <attribute type="AssemblyCompanyAttribute" value="Tim Schmidt" />
+          <attribute type="AssemblyProductAttribute" value="ReSharper Mustache plugin" />
+          <attribute type="AssemblyDescriptionAttribute" value="${build.date}" />
+        </attributes>
+      </asminfo>
+    </if>
+  </target>
+
+  <target name="compile" depends="common-assembly-info" description="compiles the source code">
+    <msbuild project="src\\ReSharper-Mustache-Plugin.sln" target="build">
+      <property name="OutDir" value="${out.dir}"/>
+      <property name="Configuration" value="${build.configuration}" />
+      <property name="Platform" value="Any CPU" />
+    </msbuild>
+  </target>
+
+  <target name="package" depends="clean,compile">
+    
+  </target>
+  
+  <!--<target name="package">
+    <property name="p.proj" value="MarketWatch.WP8"/>
+    <echo message="...creating PRODUCTION zip file..."/>
+    <mkdir dir="${dist.dir.production}" failonerror="false"/>
+    <property name="zip.filename" value="${dist.dir.production}${p.proj}-v${version}.zip" if="${build.configuration == 'Release'}"/>
+    <property name="zip.filename" value="${dist.dir.production}${p.proj}-${string::to-lower(build.configuration)}-v${version}.zip" if="${build.configuration != 'Release'}"/>
+    <zip zipfile="${zip.filename}">
+      <fileset basedir="${out.release.dir}">
+        <include name="*.xap" />
+      </fileset>
+    </zip>
+  </target>-->
+
+  <target name="build" depends="clean,compile">
+  </target>
+
+</project>
