@@ -1,0 +1,52 @@
+<assembly name="Nustache.Core">
+  <!-- ReSharper 8.1 supports specifying locations as assembly level annotations attributes -->
+  <assembly>
+    <!-- View -->
+    <attribute ctor="M:JetBrains.Annotations.AspMvcViewLocationFormatAttribute.#ctor(System.String)">
+        <argument>~\Views\{1}\{0}.mustache</argument>
+    </attribute>
+    <attribute ctor="M:JetBrains.Annotations.AspMvcViewLocationFormatAttribute.#ctor(System.String)">
+        <argument>~\Views\Shared\{0}.mustache</argument>
+    </attribute>
+
+    <!-- Master -->
+    <attribute ctor="M:JetBrains.Annotations.AspMvcMasterLocationFormatAttribute.#ctor(System.String)">
+        <argument>~\Views\{1}\{0}.mustache</argument>
+    </attribute>
+    <attribute ctor="M:JetBrains.Annotations.AspMvcMasterLocationFormatAttribute.#ctor(System.String)">
+        <argument>~\Views\Shared\{0}.mustache</argument>
+    </attribute>
+
+    <!-- Partial -->
+    <attribute ctor="M:JetBrains.Annotations.AspMvcPartialViewLocationFormatAttribute.#ctor(System.String)">
+        <argument>~\Views\{1}\{0}.mustache</argument>
+    </attribute>
+    <attribute ctor="M:JetBrains.Annotations.AspMvcPartialViewLocationFormatAttribute.#ctor(System.String)">
+        <argument>~\Views\Shared\{0}.mustache</argument>
+    </attribute>
+
+    <!-- Area view -->
+    <attribute ctor="M:JetBrains.Annotations.AspMvcAreaViewLocationFormatAttribute.#ctor(System.String)">
+        <argument>~\Areas\{2}\Views\{1}\{0}.mustache</argument>
+    </attribute>
+    <attribute ctor="M:JetBrains.Annotations.AspMvcAreaViewLocationFormatAttribute.#ctor(System.String)">
+        <argument>~\Areas\{2}\Views\Shared\{0}.mustache</argument>
+    </attribute>
+
+    <!-- Area master -->
+    <attribute ctor="M:JetBrains.Annotations.AspMvcAreaMasterLocationFormatAttribute.#ctor(System.String)">
+        <argument>~\Areas\{2}\Views\{1}\{0}.mustache</argument>
+    </attribute>
+    <attribute ctor="M:JetBrains.Annotations.AspMvcAreaMasterLocationFormatAttribute.#ctor(System.String)">
+        <argument>~\Areas\{2}\Views\Shared\{0}.mustache</argument>
+    </attribute>
+
+    <!-- Area partial -->
+    <attribute ctor="M:JetBrains.Annotations.AspMvcAreaPartialViewLocationFormatAttribute.#ctor(System.String)">
+        <argument>~\Areas\{2}\Views\{1}\{0}.mustache</argument>
+    </attribute>
+    <attribute ctor="M:JetBrains.Annotations.AspMvcAreaPartialViewLocationFormatAttribute.#ctor(System.String)">
+        <argument>~\Areas\{2}\Views\Shared\{0}.mustache</argument>
+    </attribute>
+  </assembly>
+</assembly>
