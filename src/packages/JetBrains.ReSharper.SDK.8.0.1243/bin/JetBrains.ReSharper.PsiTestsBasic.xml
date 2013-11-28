@@ -1,0 +1,15 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+JetBrains.ReSharper.PsiTestsBasic
+</name>
+</assembly>
+<members>
+<member name="T:JetBrains.ReSharper.Psi.Tests.ReSharperTestEnvironmentAssembly_PsiTestsBasic">
+	<summary>
+ Must be in the global namespace.
+ </summary>
+</member>
+</members>
+</doc>

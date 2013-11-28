@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JetBrains.ReSharper.Refactorings.Xaml</name>
+    </assembly>
+    <members>
+        <member name="T:JetBrains.ReSharper.Refactorings.Xaml.ExtractResource.UI.ExtractResourceView">
+            <summary>
+            ExtractResourceView
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Refactorings.Xaml.ExtractResource.UI.ExtractResourceView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:JetBrains.ReSharper.Refactorings.Xaml.ExtractStyle.UI.ExtractStyleView">
+            <summary>
+            ExtractStyleView
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Refactorings.Xaml.ExtractStyle.UI.ExtractStyleView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:JetBrains.ReSharper.Refactorings.Xaml.InlineResource.UI.InlineResourceView">
+            <summary>
+            InlineResourceView
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Refactorings.Xaml.InlineResource.UI.InlineResourceView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+    </members>
+</doc>

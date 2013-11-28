@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JetBrains.Platform.ReSharper.VisualStudio.JustVs08</name>
+    </assembly>
+    <members>
+        <member name="T:JetBrains.VsIntegration.VX.ProjectModel.VCProjectEngineMirror">
+            <summary>
+            This class is shared across all VS versions.
+            </summary>
+        </member>
+        <member name="T:JetBrains.VsIntegration.VX.ProjectModel.VCFileMirror">
+            <summary>
+            This class is shared across all VS versions.
+            </summary>
+        </member>
+        <member name="T:JetBrains.VsIntegration.VX.ProjectModel.VcxProjectContentBuilderMirror">
+            <summary>
+            This class is shared across all VS versions.
+            </summary>
+        </member>
+        <member name="T:JetBrains.VsIntegration.VX.ProjectModel.VcxProjectEventHandler">
+            <summary>
+            This class is shared across all VS versions.
+            </summary>
+        </member>
+    </members>
+</doc>

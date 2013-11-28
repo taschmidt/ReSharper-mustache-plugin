@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JetBrains.ReSharper.UnitTestExplorer</name>
+    </assembly>
+    <members>
+        <member name="T:JetBrains.ReSharper.UnitTestExplorer.Resources.UnitTestingIcons.IconsForIconThemeSelectionSampleUnitTesting">
+            <summary>
+            Generic Unit Testing theme-sample icons.
+            </summary>
+        </member>
+        <member name="T:JetBrains.ReSharper.UnitTestExplorer.Actions.UnitTestContextActionBase">
+            <summary>
+            Base class for all context actions with Unit Test Elements.
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.UnitTestExplorer.Actions.UnitTestContextActionBase.Update(JetBrains.ActionManagement.ActionPresentation,System.Boolean,JetBrains.ReSharper.UnitTestFramework.IUnitTestSessionView)">
+            <summary>
+            Action update. Due to performance reasons, doesn't find tests exactly, but only ensures there's at least one element available.
+            </summary>
+            <param name="presentation"></param>
+            <param name="hasAnyTests"></param>
+            <param name="session">Is not null only when called from session</param>
+            <returns></returns>
+        </member>
+        <member name="M:JetBrains.ReSharper.UnitTestExplorer.Actions.UnitTestContextActionBase.Execute(JetBrains.ReSharper.UnitTestFramework.UnitTestElements,JetBrains.ReSharper.UnitTestFramework.IUnitTestSessionView,JetBrains.ProjectModel.ISolution,JetBrains.Application.DataContext.IDataContext)">
+            <summary>
+            Executes provided elements. elements can be null when nothing is selected.
+            </summary>
+            <param name="elements"></param>
+            <param name="session"> </param>
+            <param name="solution"> </param>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JetBrains.ReSharper.UnitTestExplorer.Session.Preview.IUnitTestPreviewPanelFactory.QueryCloseInstances(System.Collections.Generic.IEnumerable{JetBrains.ReSharper.UnitTestFramework.IUnitTestSessionView})">
+            <summary>
+            
+            </summary>
+            <param name="sessions"></param>
+            <returns><value>true</value> to cancel closing given sessions</returns>
+        </member>
+        <member name="T:JetBrains.ReSharper.UnitTestExplorer.Session.UnitTestStatusPanelWPF">
+            <summary>
+            Interaction logic for UnitTestStatusPanelWPF.xaml
+            </summary>
+            <summary>
+            UnitTestStatusPanelWPF
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.UnitTestExplorer.Session.UnitTestStatusPanelWPF.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+    </members>
+</doc>

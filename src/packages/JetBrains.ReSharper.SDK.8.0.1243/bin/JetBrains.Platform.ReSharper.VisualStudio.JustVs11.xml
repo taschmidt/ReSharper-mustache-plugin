@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JetBrains.Platform.ReSharper.VisualStudio.JustVs11</name>
+    </assembly>
+    <members>
+        <member name="T:JetBrains.VsIntegration.VX.ProjectModel.VCFileMirror">
+            <summary>
+            This class is shared across all VS versions.
+            </summary>
+        </member>
+        <member name="T:JetBrains.VsIntegration.VX.ProjectModel.VCProjectEngineMirror">
+            <summary>
+            This class is shared across all VS versions.
+            </summary>
+        </member>
+        <member name="T:JetBrains.VsIntegration.VX.ProjectModel.VcxProjectContentBuilderMirror">
+            <summary>
+            This class is shared across all VS versions.
+            </summary>
+        </member>
+        <member name="T:JetBrains.VsIntegration.VX.ProjectModel.VcxProjectEventHandler">
+            <summary>
+            This class is shared across all VS versions.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Application.Extensions.UI.ExtensionRecordSeverityToColorConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+              Converts a value.
+            </summary>
+            <returns>
+              A converted value. If the method returns null, the valid null value is used.
+            </returns>
+            <param name="value">The value produced by the binding source.</param>
+            <param name="targetType">The type of the binding target property.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+        </member>
+        <member name="T:JetBrains.Application.Extensions.UI.LicenseAcceptanceWindow">
+            <summary>
+            LicenseAcceptanceWindow
+            </summary>
+        </member>
+        <member name="M:JetBrains.Application.Extensions.UI.LicenseAcceptanceWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:JetBrains.Application.Extensions.UI.ProgressDialog">
+            <summary>
+            ProgressDialog
+            </summary>
+        </member>
+        <member name="M:JetBrains.Application.Extensions.UI.ProgressDialog.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:JetBrains.Application.Extensions.UI.ShowRecordsWindow">
+            <summary>
+            ShowRecordsWindow
+            </summary>
+        </member>
+        <member name="M:JetBrains.Application.Extensions.UI.ShowRecordsWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:JetBrains.Application.Extensions.UI.ExtensionManagerWindow">
+            <summary>
+            ExtensionManagerWindow
+            </summary>
+        </member>
+        <member name="M:JetBrains.Application.Extensions.UI.ExtensionManagerWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:JetBrains.Application.Extensions.UI.RestartRequiredBar">
+            <summary>
+            RestartRequiredBar
+            </summary>
+        </member>
+        <member name="M:JetBrains.Application.Extensions.UI.RestartRequiredBar.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:JetBrains.Application.Extensions.UI.RestoreExtensionsBar">
+            <summary>
+            RestoreExtensionsBar
+            </summary>
+        </member>
+        <member name="M:JetBrains.Application.Extensions.UI.RestoreExtensionsBar.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:JetBrains.Application.Extensions.UI.ProgressWindowOpener.Show(System.String,System.Windows.Window)">
+            <summary>
+              Show the progress window with the specified title, after a delay of 500ms.
+            </summary>
+            <param name="title">The window title</param>
+            <param name="owner"></param>
+            <remarks>
+              This method can be called from worker thread.
+            </remarks>
+        </member>
+        <member name="M:JetBrains.Application.Extensions.UI.ProgressWindowOpener.Hide">
+            <summary>
+              Hide the progress window if it is open.
+            </summary>
+            <remarks>
+              This method can be called from worker thread.
+            </remarks>
+        </member>
+        <member name="M:JetBrains.Application.Extensions.UI.ProgressWindowOpener.AddMessage(JetBrains.Util.LoggingLevel,System.String)">
+            <summary>
+              Add a logging message to the progress window.
+            </summary>
+            <remarks>
+              This method can be called from worker thread.
+            </remarks>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.UI.ProgressWindowOpener.IsOpen">
+            <summary>
+              This property is only logical. The dialog may not be actually visible even if
+              the property returns true, due to the delay in showing.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.UI.UIResources.WindowBackgroundBrushKey">
+            <summary>
+              This key is used as the background for our dialogs.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.UI.UIResources.ContentBackgroundBrushKey">
+            <summary>
+              This key is used for the background of the disclaimer text.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Application.Extensions.UI.UpdateAllExtensionsBar">
+            <summary>
+            UpdateAllExtensionsBar
+            </summary>
+        </member>
+        <member name="M:JetBrains.Application.Extensions.UI.UpdateAllExtensionsBar.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:JetBrains.Application.Extensions.UI.VSExtensionsExplorerCtlEx.InsertDisclaimerElement(Microsoft.VisualStudio.ExtensionsExplorer.UI.VSExtensionsExplorerCtl,System.Windows.UIElement)">
+            <summary>
+            HACK HACK: Insert the disclaimer element into the correct place inside the Explorer control. 
+            We don't want to bring in the whole control template of the extension explorer control.
+            </summary>
+        </member>
+        <member name="T:JetBrains.VsIntegration.JustVs11.Hacks.SuppressOwnerlessFloatingWindowsJustVs11">
+            <summary>
+              See base comment.
+              Uses the vs-version-specific DLL copy.
+            </summary>
+        </member>
+        <member name="T:JetBrains.VsIntegration.JustVs11.TextControl.VsTextControlDevTenIncrementalSearchClientJustVs11">
+            <summary>
+              VS11-specific client (NOTE: in VS11+ the <see cref="T:Microsoft.VisualStudio.Text.IncrementalSearch.IIncrementalSearch"/> implementation is present, but is not active).
+            </summary>
+        </member>
+    </members>
+</doc>

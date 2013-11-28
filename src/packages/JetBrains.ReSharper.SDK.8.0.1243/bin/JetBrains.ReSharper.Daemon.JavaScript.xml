@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JetBrains.ReSharper.Daemon.JavaScript</name>
+    </assembly>
+    <members>
+        <member name="T:JetBrains.ReSharper.Daemon.JavaScript.Stages.JSon.JsonIdentifierHighlighterProcess">
+            <summary>
+            Unfortunately we cannot have the same class process for different stages (because there is indexing by type), 
+            so we need different one
+            </summary>
+        </member>
+    </members>
+</doc>

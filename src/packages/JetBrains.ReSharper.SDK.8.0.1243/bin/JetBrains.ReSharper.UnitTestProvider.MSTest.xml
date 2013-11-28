@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JetBrains.ReSharper.UnitTestProvider.MSTest</name>
+    </assembly>
+    <members>
+        <member name="T:JetBrains.ReSharper.UnitTestProvider.MSTest.MsTestTestSettingsFileInfo">
+            <summary>
+            Parser for .testsettings file (VS10)
+            Currently it parses only TestNamingScheme related properties
+            </summary>
+        </member>
+    </members>
+</doc>

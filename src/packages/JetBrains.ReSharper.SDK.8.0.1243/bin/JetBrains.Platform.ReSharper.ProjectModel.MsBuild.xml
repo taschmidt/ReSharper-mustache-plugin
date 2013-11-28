@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JetBrains.Platform.ReSharper.ProjectModel.MsBuild</name>
+    </assembly>
+    <members>
+        <member name="T:JetBrains.ProjectModel.MsBuild.IMsBuildSolutionUserProfile">
+            <summary>
+            Contains options for ms build solution load customization
+            </summary>
+        </member>
+        <member name="T:JetBrains.ProjectModel.MsBuild.MsBuildProject">
+            <summary>
+            Loaded MsBuild project
+            </summary>
+        </member>
+        <member name="P:JetBrains.ProjectModel.MsBuild.MsBuildProject.ProjectLocation">
+            <summary>
+            Project file path or webSite root folder.
+            </summary>
+        </member>
+        <member name="T:JetBrains.ProjectModel.MsBuild.Internal.MsBuildProjectModelSynchronizer">
+            <summary>
+            Converts msBuild loaded projects into ReSharper projects.
+            </summary>
+        </member>
+        <member name="T:JetBrains.ProjectModel.MsBuild.Internal.MSBuildProjectTypeService">
+            <summary>
+            Discovers project type using loaded msbuild project and a number of hacks
+            </summary>
+        </member>
+        <member name="T:JetBrains.ProjectModel.MsBuild.MsBuildSolution">
+            <summary>
+            Loaded MSBuild solution. Available in SolutionInstance component scope.
+            </summary>
+        </member>
+        <member name="T:JetBrains.ProjectModel.MsBuild.MsBuildSolutionHost">
+            <summary>
+            Can Open and Close MsBuildSolution. 
+            Exposes opended solution instance to the clients.
+            </summary>
+        </member>
+        <member name="M:JetBrains.ProjectModel.MsBuild.MsBuildSolutionHost.OpenSolution(JetBrains.Util.FileSystemPath,JetBrains.ProjectModel.MsBuild.IMsBuildSolutionUserProfile)">
+            <param name="location">Location of solution file (.sln) or project file (.csproj or any other msbuild project)</param>
+            <param name="userProfile">User profile which can be null</param>
+        </member>
+        <member name="T:JetBrains.ProjectModel.MsBuild.Internal.MsBuildSolutionManager">
+            <summary>
+            Controls ReSharper Solution lifecycle listening to <see cref="T:JetBrains.ProjectModel.MsBuild.MsBuildSolutionHost"/>
+            </summary>
+        </member>
+        <member name="M:JetBrains.ProjectModel.MsBuild.Internal.MsBuildProjectStructureBuilder.GetBuildAction(System.String)">
+            <summary>
+            TODO: add extensibility here
+            </summary>
+            <param name="itemType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JetBrains.ProjectModel.MsBuild.SlnFileExtensions.GetMaxPlatformVersion(JetBrains.ProjectModel.SolutionFileParser.ISlnFile)">
+            <summary>
+            Returns Default platform version basing on the version of solution file.
+            </summary>
+        </member>
+    </members>
+</doc>

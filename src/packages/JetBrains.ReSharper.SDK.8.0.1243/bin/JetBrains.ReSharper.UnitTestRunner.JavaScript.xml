@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JetBrains.ReSharper.UnitTestRunner.JavaScript</name>
+    </assembly>
+    <members>
+        <member name="M:JetBrains.ReSharper.UnitTestRunner.JavaScript.RequestHandlerBase.ProcessRequest(System.Net.HttpListenerContext,System.String,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Handles specific requests.
+            Returns <value>true</value> if request was handled by this handler, otherwise return <value>false</value>.
+            </summary>
+            <param name="context"></param>
+            <param name="path"></param>
+            <param name="params"></param>
+        </member>
+    </members>
+</doc>

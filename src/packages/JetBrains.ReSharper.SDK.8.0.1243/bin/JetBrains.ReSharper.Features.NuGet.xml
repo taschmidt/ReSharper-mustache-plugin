@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JetBrains.ReSharper.Features.NuGet</name>
+    </assembly>
+    <members>
+        <member name="T:JetBrains.ReSharper.Features.NuGet.RepositorySettings">
+            <summary>
+            Analog of <c>NuGet.VisualStudio.RepositorySettings</c>
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Features.NuGet.RepositorySettings.GetConfigurationPath(JetBrains.Util.FileSystemPath)">
+            <summary>
+            Returns the configuraton path by walking the directory structure to find a nuget.config file.
+            </summary>
+            <param name="solutionFilePath"></param>
+        </member>
+        <member name="M:JetBrains.ReSharper.Features.NuGet.RepositorySettings.GetRepositoryPathFromConfig(JetBrains.Util.FileSystemPath)">
+            <summary>
+            Extracts the repository path from a nuget.config settings file
+            </summary>
+            <param name="path">Full path to the nuget.config file</param>
+        </member>
+        <member name="M:JetBrains.ReSharper.Features.NuGet.RepositorySettings.GetConfigurationFiles(JetBrains.Util.FileSystemPath)">
+            <summary>
+            Returns the list of candidates for nuget config files.
+            </summary>
+        </member>
+    </members>
+</doc>

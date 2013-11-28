@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JetBrains.Platform.ReSharper.VisualStudio.SinceVs12</name>
+    </assembly>
+    <members>
+        <member name="T:JetBrains.VsIntegration.SinceVs12.TextControl.FindWindowFrameForEmbeddedPeekTextView">
+            <summary>
+            Here we got the new “Embedded Peek Text View” inserted as an island inside a big text view, which we also would like to treat as a text control, and it actually does not have a VS Window Frame on its own (only document/toolwindow frames seem to have one).
+            We still need a valid VS window frame to operate the control correctly — at least for detecting its visible state (to suppress some operations when not) and for forcing it into view when needed.
+            We would create a window frame object for this control (not bound to VS entity), then find its parent text view sitting in a real document frame and create a window frame for it, then link the former as a child of the latter.
+            </summary>
+        </member>
+    </members>
+</doc>

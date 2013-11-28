@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JetBrains.ReSharper.UnitTestProvider.MSTest12</name>
+    </assembly>
+    <members>
+        <member name="M:JetBrains.ReSharper.UnitTestProvider.MSTest11.MsTest11Runner.SetResultsDirectoryNode(System.String,System.String)">
+            <summary>
+            Sets &lt;ResultsDirectory&gt; node to %solution%/TestResults
+            </summary>
+            <param name="settingsXml"></param>
+            <param name="solutionFolder"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

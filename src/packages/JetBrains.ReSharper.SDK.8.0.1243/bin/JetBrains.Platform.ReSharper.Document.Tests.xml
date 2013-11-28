@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JetBrains.Platform.ReSharper.Document.Tests</name>
+    </assembly>
+    <members>
+        <member name="T:JetBrains.DocumentTests.Src.TestLineIndexIncremental">
+            <summary>
+            Assert that incremental updates to the line index on document modifications result in the same effect as full rescan.
+            </summary>
+        </member>
+        <member name="M:JetBrains.DocumentTests.Src.TestLineIndexIncremental.AssertConsistent(JetBrains.DocumentModel.IDocument)">
+            <summary>
+            Asserts that the doc line index that has been incrementally updated is consistent with full rescan results.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JetBrains.ReSharper.PsiTests</name>
+    </assembly>
+    <members>
+        <member name="T:JetBrains.ReSharper.PsiTests.Formatter.CodeFormatterWithExplicitSettingsTestBase">
+            <summary>
+            Code formatter test with simple configuration from .cnf file.
+            1. Place A.dotSettings beside A.cs and run test. It will automatically convert .dotSettings file to .jcnf
+            2. Edit .jcnf files manually when needed
+            </summary>
+        </member>
+        <member name="T:JetBrains.ReSharper.PsiTests.JavaScript.ExternalModules.JavaScriptModulesTest">
+            <summary>
+            need to create clear solution from scratch
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.PsiTests.parsing.CSharpParserTest.test1">
+            <summary>using directive</summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.PsiTests.parsing.CSharpParserTest.test2">
+            <summary>Global (assembly) attributes.</summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.PsiTests.parsing.CSharpParserTest.test3">
+            <summary>namespace declaration.</summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.PsiTests.parsing.CSharpParserTest.test4">
+            <summary>delegate declaration.</summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.PsiTests.parsing.CSharpParserTest.test5">
+            <summary>enum declaration.</summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.PsiTests.parsing.CSharpParserTest.test6">
+            <summary>interface declaration.</summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.PsiTests.parsing.CSharpParserTest.test7">
+            <summary>class and struct declarations.</summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.PsiTests.parsing.CSharpParserTest.test8">
+            <summary>array declarations.</summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.PsiTests.parsing.CSharpParserTest.test9">
+            <summary>statements.</summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.PsiTests.parsing.CSharpParserTest.test10">
+            <summary>expressions.</summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.PsiTests.parsing.CSharpParserTest.test11">
+            <summary>filtering lexer test.</summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.PsiTests.parsing.CSharpParserTest.test12">
+            <summary>unsafe code test.</summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.PsiTests.parsing.CSharpParserTest.test13">
+            <summary>bug fixes.</summary>
+        </member>
+        <member name="T:JetBrains.ReSharper.Psi.Test.ElementPointerTest">
+            <summary>
+            Tests element pointers
+            </summary>
+        </member>
+    </members>
+</doc>

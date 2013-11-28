@@ -1,0 +1,302 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JetBrains.Platform.ReSharper.ComponentModel</name>
+    </assembly>
+    <members>
+        <member name="T:JetBrains.Application.Components.IComponentContainer">
+            <summary>
+            Interface for abstract component container
+            </summary>
+        </member>
+        <member name="M:JetBrains.Application.Components.IComponentContainer.CreateResolveContext(JetBrains.Application.Components.IValueDescriptor)">
+            <summary>
+            Creates value resolution context for requesting descriptor.
+            </summary>
+            <param name="requestingDescriptor">Requesting descriptor or <see cref="F:JetBrains.Application.Components.DynamicComponentDescriptor.Instance"/> for unbound lookups</param>
+            <returns>IValueResolveContext for instance lookups</returns>
+        </member>
+        <member name="F:JetBrains.Application.Components.ComponentContainer.myUnknownContext">
+            <summary>
+            Immutable context for resolving in unknown (dynamic) context. Avoids memory traffic on GetComponent calls without context.
+            </summary>
+        </member>
+        <member name="F:JetBrains.Application.Components.SingletonDescriptor.ComponentState.Null">
+            <summary>
+            The component has just been created, it has not been initialized yet.
+            Cannot be returned from GetComponent in this state.
+            If queried from the Primary thread, initializes the component; on other threads, fails.
+            </summary>
+        </member>
+        <member name="F:JetBrains.Application.Components.SingletonDescriptor.ComponentState.Initializing">
+            <summary>
+            We're currently initializing the component.
+            Can be queried on the Primary thread only if there're no nested component initializations (because such a condition means a circular dependency); on other threads, fails.
+            </summary>
+        </member>
+        <member name="F:JetBrains.Application.Components.SingletonDescriptor.ComponentState.Initialized">
+            <summary>
+            The component has been initialized and its instance is accessible from any thread.
+            </summary>
+        </member>
+        <member name="F:JetBrains.Application.Components.SingletonDescriptor.ComponentState.Corrupted">
+            <summary>
+            We attempted to init the component, but it has failed to complete its Init.
+            </summary>
+        </member>
+        <member name="F:JetBrains.Application.Components.SingletonDescriptor.ComponentState.Disposing">
+            <summary>
+            The component is currently being disposed
+            </summary>
+        </member>
+        <member name="F:JetBrains.Application.Components.SingletonDescriptor.ComponentState.Disposed">
+            <summary>
+            The component was disposed and no longer accessible 
+            </summary>
+        </member>
+        <member name="M:JetBrains.Application.Components.SignatureResolution.CreateInstance``1(JetBrains.Application.Components.IComponentContainer)">
+            <summary>
+            Create an instance of arbitrary type <typeparamref name="T"/>, selecting best constructor and providing parameter values from container
+            </summary>
+            <typeparam name="T">Type to instantiate</typeparam>
+            <param name="container">Container to get values for parameters from</param>
+            <returns>New instance of type <typeparamref name="T"/></returns>
+        </member>
+        <member name="M:JetBrains.Application.Components.SignatureResolution.CreateInstance(JetBrains.Application.Components.IComponentContainer,System.Type)">
+            <summary>
+            Create an instance of arbitrary type <paramref name="type"/>, selecting best constructor and providing parameter values from container
+            </summary>
+            <param name="container">Container to get values for parameters from</param>
+            <param name="type">Type to instantiate</param>
+            <returns>New instance of type <paramref name="type"/></returns>
+        </member>
+        <member name="M:JetBrains.Application.Components.SignatureResolution.DynamicInvoke(JetBrains.Application.Components.IComponentContainer,System.Delegate)">
+            <summary>
+            Invoke a function using reflection and supplying parameters' values from container
+            </summary>
+            <param name="container">Container</param>
+            <param name="function">Function</param>
+            <returns>Return value of the function</returns>
+        </member>
+        <member name="M:JetBrains.Application.Components.SignatureResolution.CreateInstance(JetBrains.Application.Components.SignatureResolution.Binding)">
+            <summary>
+            Creates an instance from the resolved binding. Method should be <see cref="T:System.Reflection.ConstructorInfo"/>.
+            </summary>
+            <param name="binding">Resolved binding</param>
+            <returns>New instance</returns>
+        </member>
+        <member name="M:JetBrains.Application.Components.SignatureResolution.BindToConstructor(System.Type,JetBrains.Application.Components.IValueResolveContext)">
+            <summary>
+            Creates a binding to a constructor of the specified type using the specified resolver
+            </summary>
+            <param name="type">Type to create binding for</param>
+            <param name="context">Context for parameter resolution</param>
+            <param name="name">Name for diagnostics</param>
+            <returns>Resolved binding</returns>
+        </member>
+        <member name="M:JetBrains.Application.Components.SignatureResolution.BindToMethod(System.Type,System.String,JetBrains.Application.Components.IValueResolveContext)">
+            <summary>
+            Creates a binding to a method of the specified type using the specified resolver
+            </summary>
+            <param name="type">Type to create binding for</param>
+            <param name="context">Context for parameter resolution</param>
+            <param name="name">Name for diagnostics</param>
+            <returns>Resolved binding</returns>
+        </member>
+        <member name="M:JetBrains.Application.Components.SignatureResolution.BindToMethod(System.Reflection.MethodBase[],JetBrains.Application.Components.IValueResolveContext,System.String)">
+            <summary>
+            Finds method in candidates list which can be satisfied by resolver
+            </summary>
+            <param name="candidates">Candidates to select from</param>
+            <param name="context">Resolution service, can find descriptor by type</param>
+            <param name="name">Name for diagnostics</param>
+            <returns>Resolved binding</returns>
+        </member>
+        <member name="T:JetBrains.Application.Components.SignatureResolution.Binding">
+            <summary>
+            Holds information about a method bound to a list of descriptor to supply as parameters
+            </summary>
+        </member>
+        <member name="M:JetBrains.Application.Components.LazyValueResolver.TryExtractTypeUnderLazy(System.Type)">
+            <summary>
+            If <paramref name="typePossiblyLazy"/> is a lazy type, extracts the type it lazily creates (its generic parametrization type).
+            In case it looks like lazy but is not lazy (e.g. from newer system libraries), issues an exception.
+            If it's just clearly a non-Lazy type, yields NULL.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Application.Components.ViewableValueResolver">
+            <summary>
+            Handles generic descriptors of <see cref="T:JetBrains.DataFlow.IViewable`1"/> kind
+            </summary>
+        </member>
+        <member name="F:JetBrains.Application.Extensibility.CatalogueComponentSource.myCatalogueSet">
+            <summary>
+            Catalogue set used to retrieve parts from
+            </summary>
+        </member>
+        <member name="F:JetBrains.Application.Extensibility.CatalogueComponentSource.mySelector">
+            <summary>
+            Selects subset of parts to instantiate, e.g. handles parts overrides
+            </summary>
+        </member>
+        <member name="F:JetBrains.Application.Extensibility.CatalogueComponentSource.myPartsFilter">
+            <summary>
+            Filter applied to select parts for this component container
+            </summary>
+        </member>
+        <member name="F:JetBrains.Application.Components.DispatcherAccessPolicy.myDispatcher">
+            <summary>
+            Marks the container's thread affinity.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Application.Components.FactoryComponentContainer.CreateInstance``1(JetBrains.DataFlow.Lifetime,JetBrains.Application.Components.IComponentContainer,System.Object[])">
+            <summary>
+            Creates an object instance of type <typeparamref name="TInstance"/>, injecting it with custom <paramref name="args">arguments</paramref> and components from the <paramref name="parent">parent container</paramref>.
+            </summary>
+            <typeparam name="TInstance">Type of the object to create.</typeparam>
+            <param name="lifetime">Defines the lifetime for the object that will be created. The object gets it in the constructor.</param>
+            <param name="parent">The parent component container to define the set of components that could be imported in the object constructor.</param>
+            <param name="args">Additional custom actual parameters to be passed to the object constructor. These take precedence over parent container components. Note that currently there is no indication of unused parameters.</param>
+            <returns>The new instance.</returns>
+        </member>
+        <member name="M:JetBrains.Application.Components.FactoryComponentContainer.CreateInstance(JetBrains.DataFlow.Lifetime,System.Type,JetBrains.Application.Components.IComponentContainer,System.Object[])">
+            <summary>
+            Creates an object instance of type <paramref name="objecttype"/>, injecting it with custom <paramref name="args">arguments</paramref> and components from the <paramref name="parent">parent container</paramref>.
+            </summary>
+            <param name="lifetime">Defines the lifetime for the object that will be created. The object gets it in the constructor.</param>
+            <param name="objecttype">Type of the object to create.</param>
+            <param name="parent">The parent component container to define the set of components that could be imported in the object constructor.</param>
+            <param name="args">Additional custom actual parameters to be passed to the object constructor. These take precedence over parent container components. Note that currently there is no indication of unused parameters.</param>
+            <returns>The new instance.</returns>
+        </member>
+        <member name="M:JetBrains.Application.Components.FactoryComponentContainer.CreateInstanceWithoutContainer(JetBrains.DataFlow.Lifetime,System.Type,System.Object[])">
+            <summary>
+            Creates an object instance of type <paramref name="objecttype"/>, injecting it with custom <paramref name="args">arguments</paramref>, but does not chain this to the parent component container.
+            </summary>
+            <param name="lifetime">Defines the lifetime for the object that will be created. The object gets it in the constructor.</param>
+            <param name="objecttype">Type of the object to create.</param>
+            <param name="args">Additional custom actual parameters to be passed to the object constructor. These take precedence over parent container components. Note that currently there is no indication of unused parameters.</param>
+            <returns>The new instance.</returns>
+        </member>
+        <member name="M:JetBrains.Application.Components.FactoryComponentContainer.CreateInstanceCore(JetBrains.DataFlow.Lifetime,System.Type,JetBrains.Application.Components.IComponentContainer,System.Object[])">
+            <summary>
+            Creates an object instance of type <paramref name="type"/>, injecting it with custom <paramref name="args">arguments</paramref> and components from the <paramref name="parent">parent container</paramref>.
+            </summary>
+            <param name="lifetime">Defines the lifetime for the object that will be created. The object gets it in the constructor.</param>
+            <param name="type">Type of the object to create.</param>
+            <param name="parent">The parent component container to define the set of components that could be imported in the object constructor.</param>
+            <param name="args">Additional custom actual parameters to be passed to the object constructor. These take precedence over parent container components. Note that currently there is no indication of unused parameters.</param>
+            <returns>The new instance.</returns>
+        </member>
+        <member name="F:JetBrains.Application.Components.ComponentRegisterEntry.myDescriptors">
+            <summary>
+            null, IComponentDescriptor or <see cref="T:System.Collections.Generic.IList`1"/>
+            </summary>
+        </member>
+        <member name="T:JetBrains.Application.Components.ComponentStorage">
+            <summary>
+            Base class for component containers. Provides storage for components and initialization services
+            </summary>
+        </member>
+        <member name="F:JetBrains.Application.Components.ComponentStorage.myId">
+            <summary>
+            Container ID 
+            </summary>
+        </member>
+        <member name="F:JetBrains.Application.Components.ComponentStorage.myAccessPolicy">
+            <summary>
+            Attached access control policies
+            </summary>
+        </member>
+        <member name="F:JetBrains.Application.Components.ComponentStorage.myState">
+            <summary>
+            Current livetime state for this container
+            </summary>
+        </member>
+        <member name="F:JetBrains.Application.Components.ComponentStorage.myDescriptors">
+            <summary>
+            Registered descriptors and their lifetimes 
+            </summary>
+        </member>
+        <member name="F:JetBrains.Application.Components.ComponentStorage.myComponentRegister">
+            <summary>
+            Composed components map
+            </summary>
+        </member>
+        <member name="F:JetBrains.Application.Components.ComponentStorage.myViewers">
+            <summary>
+            Current viewers
+            </summary>
+        </member>
+        <member name="M:JetBrains.Application.Components.ComponentStorage.#ctor(System.String)">
+            <summary>
+            Creates new instance of <see cref="T:JetBrains.Application.Components.ComponentStorage"/>
+            </summary>
+            <param name="id">Identifier string for this container</param>
+        </member>
+        <member name="M:JetBrains.Application.Components.ComponentStorage.AttachPolicy(JetBrains.Application.Components.IComponentAccessPolicy)">
+            <summary>
+            Attaches new policy control to this container
+            </summary>
+            <param name="accessPolicy"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JetBrains.Application.Components.ComponentStorage.Compose">
+            <summary>
+            Initializes the components in the container.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Application.Components.ComponentContainerEx.TryGetComponent``1(JetBrains.Application.Components.IComponentContainer)">
+            <summary>
+            Gets the component whose interface type is <typeparamref name="TInterface"/>.
+            Returns <c>Null</c> if there is no such component, or there are multiple components
+            </summary>
+        </member>
+        <member name="F:JetBrains.Application.Components.ComponentStorageState.Initial">
+            <summary>
+            The container has just been created and is not ready for creating the components yet. Call <see cref="M:JetBrains.Application.Components.ComponentContainer.Compose"/> to proceed.
+            </summary>
+        </member>
+        <member name="F:JetBrains.Application.Components.ComponentStorageState.Initialized">
+            <summary>
+            The container is running. The first pack of components has been created.
+            </summary>
+        </member>
+        <member name="F:JetBrains.Application.Components.ComponentStorageState.Disposing">
+            <summary>
+            <see cref="M:System.IDisposable.Dispose"/> has been called on the container, and it's currently in the process of tearing down the components.
+            </summary>
+        </member>
+        <member name="F:JetBrains.Application.Components.ComponentStorageState.Disposed">
+            <summary>
+            The container has destroyed all of the components and is functional no more.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Application.Extensibility.FeaturePartsExtensions.FilterFactoryPattern``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            Uses factory pattern for applicability check. (instantiate part is not null means applicability)
+            Doesn't instantiate parts for overridden components.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Application.Parts.PartHelpers.ExpandMetadataValue(JetBrains.Metadata.Reader.API.MetadataAttributeValue)">
+            <summary>
+            Handles complex attribute values in metadata format, e.g. creates arrays and fills them with values recursively.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Application.Parts.PartHelpers.CreateResolver(JetBrains.DataFlow.Lifetime,System.Collections.Generic.IList{JetBrains.Util.FileSystemPath},System.Func{JetBrains.DataFlow.Lifetime,JetBrains.Metadata.Reader.API.IAssemblyResolver},JetBrains.Util.CompoundException)">
+            <summary>
+            Creates a resolver for reading the group of assemblies.
+            </summary>
+            <param name="lifetime">Lifetime, usually a <see cref="M:JetBrains.DataFlow.Lifetimes.Using(System.Action{JetBrains.DataFlow.Lifetime})"/> around the usage.</param>
+            <param name="assembliesCurrent">The list of assemblies we're going to process during this run. They will be available for resolve.</param>
+            <param name="FCreateAdditionalResolvers">Optional. Creates any additional resolvers.</param>
+            <param name="resolveerrors">Accumulates unresolved assembly errors when you call into the resolver. The full set of errors will be here after you terminate the lifetime.</param>
+            <returns>Resolver.</returns>
+        </member>
+        <member name="T:JetBrains.Application.Parts.TypesPartsCatalogue">
+            <summary>
+            Creates a parts catalog over a few specific runtime types — for precision filtering of what gets consumed.
+            </summary>
+        </member>
+    </members>
+</doc>

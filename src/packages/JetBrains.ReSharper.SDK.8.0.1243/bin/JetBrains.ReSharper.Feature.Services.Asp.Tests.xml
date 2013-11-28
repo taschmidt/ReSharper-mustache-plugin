@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JetBrains.ReSharper.Feature.Services.Asp.Tests</name>
+    </assembly>
+    <members>
+        <member name="T:ReSharperTestEnvironmentAssembly_AspFeatureServices">
+            <summary>
+            Must be in the global namespace.
+            </summary>
+        </member>
+    </members>
+</doc>

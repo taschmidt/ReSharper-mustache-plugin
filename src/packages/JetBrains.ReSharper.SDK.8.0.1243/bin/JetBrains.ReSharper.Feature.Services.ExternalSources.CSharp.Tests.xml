@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.Tests</name>
+    </assembly>
+    <members>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.Tests.AssemblyExport.TestExtensions.CompareFolders(JetBrains.Application.Test.BaseTestNoShell,System.String,System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Compares content of folder
+            TestDataPath2/commonRelativePath/testedFolderRelativePath
+            (files: filename.fileext)
+            with folder
+            TestDataPath2/commonRelativePath/goldFolderRelativePath
+            (files: filename.fileext.gold)
+            </summary>
+            <param name="test"></param>
+            <param name="testedFolderRelativePath"></param>
+            <param name="goldFolderRelativePath"></param>
+            <param name="commonRelativePath"></param>
+            <param name="testedFolderMayContainAdditionalFiles"></param>
+            <param name="compareOnlyStructure"> compare files content, if false </param>
+            <param name="recursive"> compare subfolders content, if true </param>
+            <param name="deleteTestedFolderAfterComparison">delete tested folder with its content</param>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.Tests.AssemblyExport.ProjFileModel.ElementNodes.ProjFileElementBaseTest.InitializeElementNameAndValue(System.String@,System.String@)">
+            <summary>
+            Initializes elementName, elementValue ("") if they are constant for this type element,
+            null otherwise
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.Tests.AssemblyExport.ProjFileModel.ElementNodes.ProjFileElementBaseTest.AddAcceptableChildrenTypes(System.Collections.Generic.List{System.Type})">
+            <summary>
+            Adds acceptable children types to acceptableChildrenTypes
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.Tests.AssemblyExport.ProjFileModel.ElementNodes.ProjFileElementBaseTest.CreateElement">
+            <summary>
+            Creates tested element
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.Tests.AssemblyExport.ProjFileModel.ElementNodes.ProjFileElementBaseTest.PerTestSetUp">
+            <summary>
+            Initializes myElement
+            </summary>
+        </member>
+    </members>
+</doc>

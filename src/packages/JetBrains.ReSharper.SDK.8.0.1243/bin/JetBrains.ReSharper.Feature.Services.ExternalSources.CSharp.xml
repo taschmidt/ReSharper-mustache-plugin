@@ -1,0 +1,701 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp</name>
+    </assembly>
+    <members>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.IAssemblyExporter.Export(JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.IAssemblyExportParameters,JetBrains.Application.Progress.IProgressIndicator)">
+            <returns>null, if assembly isn't saved or invalid ExportParameters</returns>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.AssemblyExporter.AddWpfReferences(System.Collections.Generic.List{JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileReference})">
+            <summary>
+            Adds WindowsBase, PresentationCore, PresentationFramework references to references list
+            (if these references are not contained in list)
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.AssemblyExporter.CopyFromTempFolder(JetBrains.Util.FileSystemPath)">
+            <summary>
+            Copies files from temp folder to user defined folder,
+            deletes this temp files
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.AssemblyExporter.DecompileToTempFolder">
+            <summary>
+            Decompiles to temp folder,
+            returns rootNamespaces and relative paths to decompiled sources and resources 
+            </summary>
+            <returns>temp folder with decompiled files, if decompilation is successful, 
+            null otherwise (for example: if user press cancel in TaskExecutor)</returns>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.AssemblyExporter.TrySaveAssemblyInfo(System.String,JetBrains.Util.FileSystemPath)">
+            <returns>false, if file with this relative path allready exists in sourceFiles list</returns>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.AssemblyExporter.DecompileResource(JetBrains.Metadata.Reader.API.IManifestResourceDisposition,JetBrains.Util.FileSystemPath,JetBrains.Application.Progress.IProgressIndicator,System.Boolean)">
+            <summary>
+            Decompiles and saves resource and nested resources, 
+            (and before this checks equality progressIndicator.IsCanceled property to false), 
+            to apropriate subfolder of the rootFolder, if performDecompilation is true;
+            adds relative path to this resource/nested resources to resourcesFiles or embeddedResourcesFiles (depending on resource type),
+            advances progressIndicator
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.AssemblyExporter.DecompileTypeElement(JetBrains.ReSharper.Psi.ITypeElement,System.Boolean,System.String,JetBrains.Util.FileSystemPath,JetBrains.Application.Progress.IProgressIndicator,System.Boolean)">
+            <summary>
+            Decompiles typeElement, if performDecompilation is true;
+            (and checks equality progressIndicator.IsCanceled property to false before each decompilation),
+            adds relative path to this source to sourcesFiles,
+            advances progressIndicator,
+            checks for unsafe code
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.AssemblyExporter.DecompileTypeElement(JetBrains.ReSharper.Psi.ITypeElement,System.Boolean,JetBrains.Util.FileSystemPath,JetBrains.Application.Progress.IProgressIndicator)">
+            <summary>
+            Decompiles typeElement into filePath;
+            checks for unsafe code;
+            determines successfull decompilation
+            </summary>
+            <param name="typeElement"></param>
+            <param name="isPartial"></param>
+            <param name="filePath"></param>
+            <param name="progressIndicator"></param>
+            <returns>true, in case of successful decompilation </returns>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.AssemblyExporter.GetFilePathAndCreateNonexistentFolder(System.String,JetBrains.Util.FileSystemPath,System.Boolean)">
+            <summary>
+            Combines full file path from relative path and root folder path,
+            creates containing folder if it not exists 
+            </summary>
+        </member>
+        <member name="P:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.IAssemblyExportParameters.Folder">
+            <summary>
+            Folder for project exporting
+            </summary>
+        </member>
+        <member name="P:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.IAssemblyExportParameters.FolderIsNotEmptyChoice">
+            <summary>
+            What to do if chosen folder is not empty
+            </summary>
+        </member>
+        <member name="P:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.IAssemblyExportParameters.ProjectName">
+            <summary>
+            Name of .csproj file (and .sln file, if requested)
+            </summary>
+        </member>
+        <member name="P:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.IAssemblyExportParameters.CreateSolution">
+            <summary>
+            Create appropriate .sln file, if true
+            (otherwise only .csproj file created)
+            </summary>
+        </member>
+        <member name="P:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.IAssemblyExportParameters.PerformDecompilation">
+            <summary>
+            Decompile sources and resources (and create folder structure corresponding to namespaces), if true
+            (otherwise only .csproj, (.sln), AssemblyInfo.cs files created (based on assembly metadata))
+            </summary>
+        </member>
+        <member name="P:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.IAssemblyExportParameters.GenerateEmptyGuid">
+            <summary>
+            If GenerateEmptyGuid is true then AssemblyExplorer generates Guid.Empty Guid for project
+            </summary>
+        </member>
+        <member name="P:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.IAssemblyExportParameters.WriteBoundAssemblyComment">
+            <summary>
+            If true then comment with bound assembly path should be written to ProjFile and source files
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.AssemblyExportParameters.#ctor(JetBrains.ProjectModel.Model2.Assemblies.Interfaces.IAssemblyFile,JetBrains.Util.FileSystemPath,JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.FolderIsNotEmptyAction,System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <param name="assemblyFile"></param>
+            <param name="folder">folder for project exporting</param>
+            <param name="folderIsNotEmptyChoice">what to do if chosen folder is not empty</param>
+            <param name="projectName">if empty string, then ProjectName is set to default name = assembly file name</param>
+            <param name="createSolution">Create appropriate .sln file, if true (otherwise only .csproj file created)</param>
+            <param name="performDecompilation">
+            Decompile sources and resources (and create folder structure corresponding to namespaces), if true
+            (otherwise only .csproj, (.sln), AssemblyInfo.cs files created (based on assembly metadata))</param>
+            <param name="generateEmptyGuid"> </param>
+            <param name="writeBoundAssemblyComment"></param>
+        </member>
+        <member name="F:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.Mappings.NamespaceFolderMappings.myNamespacesFolders">
+            <summary>
+            Namespace -> relative folder file path(s)
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.Mappings.NamespaceFolderMappings.AddMapping(JetBrains.ReSharper.Psi.INamespace,System.String)">
+            <summary>
+            Adds namespace-folder mapping 
+            (and adds containing namespace - containing folder mappings recursively if containing folder name equals containing namespace short name).
+            Folder should be in form of "folder1\folder2\" or ""
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.Mappings.NamespaceFolderMappings.TryGetFolderFromDictionary(JetBrains.ReSharper.Psi.INamespace)">
+            <summary>
+            Get folder for namespace if namespace exists in dictionary, null otherwise
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.Mappings.NamespaceFolderMappings.GetFolder(JetBrains.ReSharper.Psi.INamespace)">
+            <summary>
+            Gets folder corresponding to namespace
+            </summary>
+        </member>
+        <member name="F:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.Mappings.TypeFileMappings.myFiles">
+            <summary>
+            all source files (without *.xaml files) 
+            </summary>
+        </member>
+        <member name="F:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.Mappings.TypeFileMappings.myTypesFiles">
+            <summary>
+            Type -> relative source file path
+            </summary>
+        </member>
+        <member name="F:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.Mappings.TypeFileMappings.myTypesXamlFiles">
+            <summary>
+            Type -> relative xaml file path
+            </summary>
+        </member>
+        <member name="F:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.Mappings.TypeFileMappings.myFilesTypes">
+            <summary>
+            Relative source file path -> types
+            </summary>
+        </member>
+        <member name="F:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.Mappings.TypeFileMappings.myXamlFilesTypes">
+            <summary>
+            Relative xaml file path -> types
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.Mappings.TypeFileMappings.GetFileAndFolder(JetBrains.ReSharper.Psi.ITypeElement,System.Collections.Generic.IDictionary{System.String,JetBrains.Util.FileSystemPath},JetBrains.Util.FileSystemPath)">
+            <summary>
+            Gets (suggested) file name and relative folder path (to rootFolder) from type2FileMappings
+            if type2FileMappings contains info about this type, (null, null) otherwise
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.Mappings.UniqueFilePathGenerator.Generate(JetBrains.ReSharper.Psi.ITypeElement,System.String)">
+            <summary>
+            Generates unique file path according typeElement and relativeFolderPath
+            </summary>
+            <param name="typeElement"></param>
+            <param name="relativeFolderPath">either "" or "Folder1\Folder2\...FolderN\"</param>
+            <returns>unique relative file path</returns>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.Mappings.UniqueFilePathGenerator.Generate(System.String,System.String)">
+            <summary>
+            Generates unique file path according suggestedFileName and relativeFolderPath
+            </summary>
+            <param name="suggestedFileName"></param>
+            <param name="relativeFolderPath">either "" or "Folder1\Folder2\...FolderN\"</param>
+            <returns>unique relative file path</returns>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileGenerator.GenerateProjectElement(JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.Properties.IProjFileProperties)">
+            <summary>
+            Generates tree structure of proj file.
+            Root element: Project.
+            Child elements of Project:
+            PropertyGroup elements, ItemGroup elements, Import elements, ...
+            </summary>
+            <returns>Project element of proj file tree</returns>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileGenerator.GenerateProjFileRoot(JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.Properties.IProjFileProperties)">
+            <summary>
+            Generates tree structure of ProjFile with virtual root.
+            Root element: ProjFileRoot
+            Child element of ProjFileRoot: ProjectElement
+            </summary>
+            <returns>Root (virtual) of proj file tree</returns>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileGenerator.ConditionEqAttribute(System.String,System.String)">
+            <summary>
+            Condition=" 'stringA'=='stringB' "
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileGenerator.GenerateConfigurationPlatformPropertyGroup(System.String,System.String,JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.Properties.IProjFileProperties)">
+            <summary>
+            Creates property group with configuration|platform condition and appropriate properties
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileGenerator.AddAssemblyInfo(JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.PropertyGroupElement,JetBrains.ProjectModel.Model2.Assemblies.Interfaces.IAssembly,System.Guid)">
+            <summary>
+            Adds assembly information to PropertyGroup
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileGenerator.AddNonEmptyRootNamespace(JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.PropertyGroupElement,JetBrains.ReSharper.Psi.INamespace)">
+            <summary>
+            Adds nested RootNamespace property to propertyGroup
+            </summary>
+            <param name="propertyGroup"></param>
+            <param name="rootNamespace"></param>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileGenerator.AddReferences(JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.ItemGroupElement,System.Collections.Generic.IEnumerable{JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileReference})">
+            <summary>
+            Adds nested Reference items (possible with HintPath metadata) to itemGroup
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileGenerator.ExtractFileName(System.String)">
+            <summary>
+            folder1/folder2/file.ext -> file.ext
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileGenerator.AddItemGroup(JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.ProjectElement,System.String,System.Collections.Generic.IEnumerable{System.String},System.Action{JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.ItemElement})">
+            <summary>
+            Adds nested items to created ItemGroup element
+            and adds this element to rootElement
+            </summary>
+            <param name="rootElement"></param>
+            <param name="itemsName">Name of all addable items</param>
+            <param name="itemIncludes">Values of Include attribute for each item</param>
+            <returns>Created ItemGroup with added items</returns>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileGenerator.AddItems(JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.ItemGroupElement,System.String,System.Collections.Generic.IEnumerable{System.String},System.Action{JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.ItemElement})">
+            <summary>
+            Adds nested items to ItemGroup element
+            </summary>
+            <param name="itemGroup">ItemGroup element</param>
+            <param name="itemsName">Name of all addable items</param>
+            <param name="itemIncludes">Values of Include attribute for each item</param>
+            <param name="itemMetadataAdder">action for adding metadata to item</param>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.Attributes.ProjFileAttributeUsageInfo.CheckValue(System.String)">
+            <summary>
+            Validates attribute value
+            </summary>
+            <returns>true, if value is valid (acceptable)</returns>
+        </member>
+        <member name="P:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.Attributes.ProjFileAttributeUsageInfo.Name">
+            <summary>
+            Strict attribute name
+            </summary>
+            <returns>If attribute may have various names, then Name is VariousNames</returns>
+        </member>
+        <member name="P:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.Attributes.ProjFileAttributeUsageInfo.Required">
+            <summary>
+            true, if attribute is required
+            (if AlternativeAttributeName isn't null, then either this or the AlternativeAttributeName attribute is required)
+            </summary>
+        </member>
+        <member name="P:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.Attributes.ProjFileAttributeUsageInfo.AlternativeAttributeName">
+            <summary>
+            AlternativeAttributeName != null, if either this or the AlternativeAttributeName attribute is required
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.ProjFileElement.GetAttributeValue(System.String)">
+            <summary>
+            Gets value of attribute with such name, if such attribute exists,
+            otherwise returns null
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.ProjFileElement.CheckParent(JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.ProjFileElement)">
+            <returns>true, if the element may have this testedElement as parent</returns>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.ProjFileElement.CheckChild(JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.ProjFileElement)">
+            <returns>true, if the element may have this testedElement as child (and may have children)</returns>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.ProjFileElement.AddChild(JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.ProjFileElement)">
+            <summary>
+            Adds child element to children list
+            (and sets appropriate child.Parent, if child have been added)
+            </summary>
+            <returns>Added child</returns>
+            <exception cref="T:System.ArgumentException">throws if the element can't have this type of child, or can't have children</exception>
+            <exception cref="T:System.ArgumentNullException">throws if child is null</exception>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.ProjFileElement.CreateChild(System.String,System.String,JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.Attributes.ProjFileElementAttribute[])">
+            <summary>
+            If element with this name, value and attributes can be a child,
+            then this element is created (but not added to children list)
+            </summary>
+            <returns>created element, if it is created, null otherwise</returns>
+            <exception cref="T:System.ArgumentException">throws if childAttributes are illegal, or required attributes are absent</exception>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.ProjFileElement.TryAddChild(System.String,System.String,JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.Attributes.ProjFileElementAttribute[])">
+            <summary>
+            If element with this name, value and attributes can be a child,
+            then this element is created and added to children list
+            </summary>
+            <returns>created element, if it is created and added, null otherwise</returns>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.ProjFileElement.#ctor(System.String,System.String,JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.Attributes.ProjFileElementAttribute[])">
+            <param name="name"> element tag </param>
+            <param name="value">should be NoValue for element, that may have children</param>
+            <param name="attributes"> </param>
+            <exception cref="T:System.ArgumentException">throws when there is error in attributes</exception>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.ProjFileElement.Write(System.Xml.XmlWriter)">
+            <summary>
+            Writes element contents to XML
+            (include nested elements)
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.ProjFileElement.GetChildElements(System.String)">
+            <summary>
+            Gets children with Name == name
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.ProjFileElement.AddAttribute(JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.Attributes.ProjFileElementAttribute)">
+            <summary>
+            Adds attribute, if it is legal
+            </summary>
+            <returns>false, if attribute wasn't added</returns>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.ProjFileElement.CheckAttribute(JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.Attributes.ProjFileElementAttribute)">
+            <summary>
+            Cheks attribute
+            </summary>
+            <remarks>Method should be called before adding attribute</remarks>
+            <returns>true, if attribute can be added</returns>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.ProjFileElement.CheckForRequiredAttributes">
+            <returns>true, if all required attributes exist (if there are alternative attributes, then only one does exist)</returns>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.ProjFileElement.CheckForRequiredVarNameAttributes">
+            <returns>true, if (required attributes with various names exist and there are not alternative attributes) or (required attributes with various names don't exist)</returns>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.ProjFileElement.GetAttributeUsageInfo(System.String)">
+            <returns>null, if attribute with such name is illegal</returns>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.ProjFileElement.HasAttribute(System.String)">
+            <returns>true, if the element has attribute with such name;
+            false, if atributeName is null, or attribute with such name doesn't exist</returns>
+        </member>
+        <member name="P:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.ProjFileElement.Value">
+            <remarks>Value should be NoValue, if element has children</remarks>
+        </member>
+        <member name="P:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.ProjFileElement.Parent">
+            <exception cref="T:System.ArgumentException">throws if the element can't have this type of parent, or can't have parent</exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="P:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.ProjFileElement.ChildElements">
+            <summary>
+            All child elements of the element
+            </summary>
+        </member>
+        <member name="P:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.ProjFileElement.ChildComments">
+            <summary>
+            All child comments of the element
+            </summary>
+        </member>
+        <member name="T:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.ImportGroupElement">
+            <remarks>MSBuild 4.0</remarks>
+        </member>
+        <member name="T:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.ItemDefinitionElement">
+            <remarks>MSBuild 3.5?</remarks>
+        </member>
+        <member name="T:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.ItemDefinitionGroupElement">
+            <remarks>MSBuild 3.5?</remarks>
+        </member>
+        <member name="T:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.ParameterElement">
+            <remarks>MSBuild 4.0</remarks>
+        </member>
+        <member name="T:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.ParameterGroupElement">
+            <remarks>MSBuild 4.0</remarks>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.ProjectElement.#ctor(JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.Attributes.ProjFileElementAttribute[])">
+            <summary>
+            Creates Project element
+            (it doesn't have to pass xmlns attribute)
+            </summary>
+        </member>
+        <member name="T:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.ProjFileRoot">
+            <summary>
+            Root (virtual) of proj file tree
+            (Leaves: only one required ProjectElement, several ProjFileComment) 
+            </summary>
+        </member>
+        <member name="T:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.TaskBodyElement">
+            <remarks>MSBuild 4.0</remarks>
+        </member>
+        <member name="T:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.FolderElement">
+            <summary>
+            Folder containing subfolders (FolderElement) and items (LinkedItemElement) 
+            </summary>
+        </member>
+        <member name="P:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.FolderElement.Path">
+            <summary>
+            Full path of the folder
+            </summary>
+        </member>
+        <member name="T:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ProjFile">
+            <summary>
+            *.proj (*.csproj) file with xml representation and binding to assembly
+            Can be serialized/deserialized
+            </summary>
+        </member>
+        <member name="F:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ProjFile.myProjFileRoot">
+            <summary>
+            Virtual root of proj file tree
+            </summary>
+        </member>
+        <member name="F:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ProjFile.myRootFolder">
+            <summary>
+            All relative paths in projfile relate to this folder
+            </summary>
+        </member>
+        <member name="F:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ProjFile.myFolderTreeNodes">
+            <summary>
+            Namespaces/folders tree
+            </summary>
+        </member>
+        <member name="F:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ProjFile.myLinkedItems">
+            <summary>
+            Sources, resources, embedded resources and other items (except Reference) with its path
+            </summary>
+        </member>
+        <member name="F:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ProjFile.myProperties">
+            <summary>
+            Project properties
+            </summary>
+        </member>
+        <member name="F:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ProjFile.myReferences">
+            <summary>
+            References to another assemblies
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ProjFile.GetPropertyElements(System.String)">
+            <summary>
+            Gets Property elements by name if properties with such name exists
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ProjFile.TryGetPropertyValue(System.String)">
+            <summary>
+            Gets Property element value by name if property exists
+            (if there are multiple properties with such name, then returns value of first property)
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ProjFile.#ctor(JetBrains.Util.FileSystemPath,JetBrains.ProjectModel.Model2.Assemblies.Interfaces.IAssembly,JetBrains.ReSharper.Psi.Modules.IPsiModules,JetBrains.ReSharper.Psi.Caches.ISymbolCache,JetBrains.ReSharper.Feature.Services.ExternalSources.Pdb.Cache.IPdbCacheManager)">
+            <summary>
+            Loads data from projFilePath, binds to assembly from assemblyPath (if it is not null)
+            </summary>
+            <exception cref="T:System.IO.FileNotFoundException">throws if projFilePath file not exists</exception>
+            <exception cref="T:System.IO.FileFormatException">throws if projFilePath file has invalid format (not a ProjFile format)</exception>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ProjFile.#ctor(JetBrains.Util.FileSystemPath,System.String,JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.Properties.IProjFileProperties)">
+            <summary>
+            Creates and saves *.proj file,
+            binds it to assembly
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ProjFile.CreateLinkedItemsList">
+            <summary>
+            Creates list containing all sources, resources, embedded resources, pages, and other items (except Reference items) with its path
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ProjFile.CollectProperties">
+            <summary>
+            Fills myProperties list, myPropertiesDictionary,
+            gets DefaultNamespace, DefaultNamespaceUpperCaseFolderName
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ProjFile.CreateReferencesList">
+            <summary>
+            Creates list containing all references
+            </summary>
+        </member>
+        <member name="P:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ProjFile.RootFolderElement">
+            <summary>
+            Root folder with subfolders and items (sources/resources/embedded resources/...)
+            </summary>
+        </member>
+        <member name="P:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ProjFile.Path">
+            <summary>
+            Path to proj file
+            </summary>
+        </member>
+        <member name="P:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ProjFile.Assembly">
+            <summary>
+            Bound assembly
+            </summary>
+        </member>
+        <member name="P:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ProjFile.LinkedItems">
+            <summary>
+            Sources, resources, embedded resources and other items (except Reference items) with its path
+            </summary>
+        </member>
+        <member name="P:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ProjFile.Properties">
+            <summary>
+            Project properties
+            </summary>
+        </member>
+        <member name="P:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ProjFile.References">
+            <summary>
+            References to another assemblies
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ProjFileExtensions.GetProjectGuid(JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ProjFile)">
+            <summary>
+            Gets project GUID from ProjectGuid property of projFile
+            </summary>
+            <param name="projFile"></param>
+            <returns>project GUID if ProjectGuid property exists, Guid.Empty otherwise</returns>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ProjFileExtensions.GetAssemblyName(JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ProjFile)">
+            <summary>
+            Gets assembly name from AssemblyName property of projFile 
+            (or from projFile.Assembly / projFile.Path)
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ProjFileExtensions.GetPath(JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ProjFile,System.String)">
+            <summary>
+            Gets full path 
+            (default namespace and projFile.Path are taken into account)
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ProjFileExtensions.GetPath(JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ProjFile,JetBrains.ReSharper.Psi.ITypeElement)">
+            <summary>
+            Gets full path of file (in project) that contains type declaration
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileReader.ReadFromFile(JetBrains.Util.FileSystemPath)">
+            <summary>
+            Reads tree structure of proj file
+            </summary>
+            <param name="projFilePath"></param>
+            <returns>Root (virtual) of proj file tree if file exists and has valid proj file format, null otherwise</returns>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileReader.TryReadBoundAssemblyPath(JetBrains.Util.FileSystemPath)">
+            <summary>
+            Try get path of assembly associated with project
+            (from comment inside Project element)
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileReader.ImportFromXmlDocument(System.Xml.XmlDocument)">
+            <summary>
+            Converts XML document to tree structure of proj file 
+            </summary>
+            <param name="document"></param>
+            <returns>Root (virtual) of proj file tree if XML document has valid structure, null otherwise</returns>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileReader.AddChildren(JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ElementNodes.ProjFileElement,System.Xml.XmlNode)">
+            <summary>
+            Adds all xmlElement children (converted to ProjFileElement) to element
+            </summary>
+        </member>
+        <member name="P:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileReference.Reference">
+            <summary>
+            Referenced assembly name
+            </summary>
+        </member>
+        <member name="P:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileReference.HintPath">
+            <summary>
+            Local path to referenced assembly
+            </summary>
+        </member>
+        <member name="P:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.Properties.IProjFileProperties.Assembly">
+            <summary>
+            Assembly from which this project was exported 
+            </summary>
+        </member>
+        <member name="P:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.Properties.IProjFileProperties.Sources">
+            <summary>
+            Source files relative path (and types, default namespace...)
+            </summary>
+        </member>
+        <member name="P:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.Properties.IProjFileProperties.Resources">
+            <summary>
+            Resources files relative paths
+            </summary>
+        </member>
+        <member name="P:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.Properties.IProjFileProperties.EmbeddedResources">
+            <summary>
+            Embedded resources files relative paths
+            </summary>
+        </member>
+        <member name="P:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.Properties.IProjFileProperties.XamlResources">
+            <summary>
+            XAML files relative paths
+            </summary>
+        </member>
+        <member name="P:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.Properties.IProjFileProperties.WriteBoundAssemblyComment">
+            <summary>
+            If WriteBoundAssemblyComment is true then comment with bound assembly path should be written to ProjFile
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ResourceUtils.ResxUtil.ConvertResourcesToResx(System.IO.Stream,System.String)">
+            <summary>
+            *.resources => *.resx (resxFilePath)
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.SolutionFileGenerator.SaveSolutionFile(JetBrains.Util.FileSystemPath,JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ProjFile)">
+            <summary>
+            Generates solution file with information about project
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.SolutionFileGenerator.GenerateSolutionFileFormatBlock(JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ProjFile)">
+            <summary>
+            Generates file format block based on ToolsVersion attribute of Project element of projFile
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.SolutionFileGenerator.GenerateProjectInfoBlock(JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.ProjFileModel.ProjFile,JetBrains.Util.FileSystemPath)">
+            <summary>
+            Project("{WindowsCSharpTypeGuid}") = "ProjectName", "ProjectRelativePath", "{ProjectGuid}"
+            EndProject
+            </summary>
+        </member>
+        <member name="T:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.TypesAnalizer">
+            <summary>
+            Collects and filters types,
+            detects default namespace
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.TypesAnalizer.CollectNestedTypes(JetBrains.ReSharper.Psi.INamespace)">
+            <summary>
+            Fills myFilteredTypeElements, finds defaultNamespace
+            </summary>
+            <returns>filtered inner type elements count</returns>
+        </member>
+        <member name="P:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.TypesAnalizer.TypesCount">
+            <summary>
+            Number of filtered types in assembly
+            </summary>
+        </member>
+        <member name="P:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport.TypesAnalizer.Types">
+            <summary>
+            List of all filtered type elements in assembly
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.MetadataTranslator.CSharpNamingUtil.IsLetterCharacter(System.Char)">
+            <summary>
+            Checks whether character is letter-character in accordance
+            with "Identifiers" (9.4.2) of C# standard
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.MetadataTranslator.CSharpNamingUtil.IsCombiningCharacter(System.Char)">
+            <summary>
+            Checks whether character is combining-character in accordance
+            with "Identifiers" (9.4.2) of C# standard
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.MetadataTranslator.CSharpNamingUtil.IsDecimalDigitCharacter(System.Char)">
+            <summary>
+            Checks whether character is decimal-digit-character in accordance
+            with "Identifiers" (9.4.2) of C# standard
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.MetadataTranslator.CSharpNamingUtil.IsConnectingCharacter(System.Char)">
+            <summary>
+            Checks whether character is connecting-character in accordance
+            with "Identifiers" (9.4.2) of C# standard
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.MetadataTranslator.CSharpNamingUtil.IsFormattingCharacter(System.Char)">
+            <summary>
+            Checks whether character is formatting-character in accordance
+            with "Identifiers" (9.4.2) of C# standard
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.MetadataTranslator.CSharpNamingUtil.IsIdentifierStartCharacter(System.Char)">
+            <summary>
+            Checks whether character is identifier-start-character in accordance
+            with "Identifiers" (9.4.2) of C# standard
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.MetadataTranslator.CSharpNamingUtil.IsIdentifierPartCharacter(System.Char)">
+            <summary>
+            Checks whether character is identifier-part-character in accordance
+            with "Identifiers" (9.4.2) of C# standard
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.MetadataTranslator.CSharpNamingUtil.IsIdentifier(System.String)">
+            <summary>
+            Checks whether string is valid identifier in accordance
+            with "Identifiers" (9.4.2) of C# standard
+            </summary>
+        </member>
+    </members>
+</doc>

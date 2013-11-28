@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JetBrains.ReSharper.Feature.Services.Tests.Common</name>
+    </assembly>
+    <members>
+        <member name="T:ReSharperTestEnvironmentAssembly_FeatureServicesTestsCommon">
+            <summary>
+            Must be in the global namespace.
+            </summary>
+        </member>
+        <member name="T:JetBrains.ReSharper.Feature.Services.CSharp.CodeCompletion.CSharpCodeCompletionTest">
+            <summary>
+            Tests the completion logic part of the code completion action
+            </summary>
+        </member>
+    </members>
+</doc>

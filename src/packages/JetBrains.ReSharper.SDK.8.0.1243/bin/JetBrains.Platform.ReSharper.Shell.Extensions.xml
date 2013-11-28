@@ -1,0 +1,547 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JetBrains.Platform.ReSharper.Shell.Extensions</name>
+    </assembly>
+    <members>
+        <member name="T:JetBrains.Application.Extensions.VsResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.AggregateSourceName">
+            <summary>
+              Looks up a localized string similar to All.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.AmbiguousProjectLevelUninstal">
+            <summary>
+              Looks up a localized string similar to Unable to find &apos;{0}&apos; in &apos;{1}&apos; and found multiple versions of &apos;{0}&apos; installed. Please specify a version..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.AmbiguousUninstall">
+            <summary>
+              Looks up a localized string similar to Found multiple versions of &apos;{0}&apos; installed. Please specify a version..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.AmbiguousUpdate">
+            <summary>
+              Looks up a localized string similar to Unable to update &apos;{0}&apos;. Found multiple versions installed..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.AskForRestoreMessage">
+            <summary>
+              Looks up a localized string similar to Some extensions are missing from this product. Click to restore..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.AskForUpdateMessage">
+            <summary>
+              Looks up a localized string similar to A new version of NuGet Package Manager is available..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.Console_DisclaimerText">
+            <summary>
+              Looks up a localized string similar to Each extension is licensed to you by its owner. JetBrains is not responsible for, nor does it grant any licenses to, third-party extensions. Some extensions may include dependencies which are governed by additional licenses. Follow the extension source (feed) URL to determine any dependencies..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.Console_HelpText">
+            <summary>
+              Looks up a localized string similar to Type &apos;get-help NuGet&apos; to see all available NuGet commands..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.Console_InitializeHostFails">
+            <summary>
+              Looks up a localized string similar to Failed to initialize the PowerShell host. If your PowerShell execution policy setting is set to AllSigned, open the Package Manager Console to initialize the host first..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.Debug_AddedFileToProject">
+            <summary>
+              Looks up a localized string similar to Added file &apos;{0}&apos; to project &apos;{1}&apos;.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.Debug_AddReference">
+            <summary>
+              Looks up a localized string similar to Added reference &apos;{0}&apos; to project &apos;{1}&apos;.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.Debug_RemovedFile">
+            <summary>
+              Looks up a localized string similar to Removed file &apos;{0}&apos;.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.Debug_RemovedFileFromFolder">
+            <summary>
+              Looks up a localized string similar to Removed file &apos;{0}&apos; from folder &apos;{1}&apos;.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.Debug_RemovedFolder">
+            <summary>
+              Looks up a localized string similar to Removed folder &apos;{0}&apos;.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.Debug_RemoveReference">
+            <summary>
+              Looks up a localized string similar to Removed reference &apos;{0}&apos; from project &apos;{1}&apos;.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.Dialog_DisclaimerText">
+            <summary>
+              Looks up a localized string similar to Each extension is licensed to you by its owner. JetBrains is not responsible for, nor does it grant any licenses to, third-party extensions..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.DialogTitle">
+            <summary>
+              Looks up a localized string similar to Extension Manager.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.DoNotRemindAgain">
+            <summary>
+              Looks up a localized string similar to Don&apos;t show again.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.DTE_InvalidProject">
+            <summary>
+              Looks up a localized string similar to The project is invalid.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.DTE_ProjectUnsupported">
+            <summary>
+              Looks up a localized string similar to The project &apos;{0}&apos; is unsupported.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.ErrorReadingFile">
+            <summary>
+              Looks up a localized string similar to Error reading &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.ExecutingScript">
+            <summary>
+              Looks up a localized string similar to Executing script file &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.FailedToAddGacReference">
+            <summary>
+              Looks up a localized string similar to Failed to add reference to &apos;{0}&apos;. Please make sure that it is in the Global Assembly Cache..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.FailedToAddReference">
+            <summary>
+              Looks up a localized string similar to Failed to add reference to &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.FailedToRemoveReference">
+            <summary>
+              Looks up a localized string similar to Case insensitive search for reference &apos;{0}&apos;, to be removed, returned more than 1 match. Request could not be performed..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.FileConflictTitle">
+            <summary>
+              Looks up a localized string similar to File Conflict.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.IgnoreUpgrade">
+            <summary>
+              Looks up a localized string similar to Ignore for now.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.Log_PackageAlreadyInstalled">
+            <summary>
+              Looks up a localized string similar to &apos;{0}&apos; already installed..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.NoActivePackageSource">
+            <summary>
+              Looks up a localized string similar to Unable to retrieve extension list because no source was specified..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.NoUpdatesAvailable">
+            <summary>
+              Looks up a localized string similar to No updates available for &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.OfficialSourceName">
+            <summary>
+              Looks up a localized string similar to NuGet official package source.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.OperationFailed">
+            <summary>
+              Looks up a localized string similar to Operation failed..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.PackageCannotBeRemovedBecauseItIsInUse">
+            <summary>
+              Looks up a localized string similar to &apos;{0}&apos; cannot be removed because it in use by &apos;{1}&apos;.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.PackageNotInstalledInAnyProject">
+            <summary>
+              Looks up a localized string similar to &apos;{0}&apos; was not installed in any project. Update failed..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.PackageRestoreCompleted">
+            <summary>
+              Looks up a localized string similar to Finished configuring this product to restore extensions on start..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.PackageRestoreConfirmation">
+            <summary>
+              Looks up a localized string similar to Do you want to configure this product to download and restore missing extensions?.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.PackageRestoreDownloadPackageFailed">
+            <summary>
+              Looks up a localized string similar to Downloading extension &apos;{0}&apos; failed..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.PackageRestoreErrorMessage">
+            <summary>
+              Looks up a localized string similar to An error occurred while configuring the product to restore extensions on start.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.PackageRestoreErrorTryAgain">
+            <summary>
+              Looks up a localized string similar to An error occurred while trying to restore extensions. Please try again..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.PackageRestoreProgressMessage">
+            <summary>
+              Looks up a localized string similar to Downloading missing extensions....
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.PackageRestoreSkipForProject">
+            <summary>
+              Looks up a localized string similar to Skipped reinstalling extension &apos;{0}&apos; in product &apos;{1}&apos; because the extension does not exist in the extension source..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.PackageRestoreSkipForSolution">
+            <summary>
+              Looks up a localized string similar to Skipped reinstalling extension &apos;{0}&apos; because the extension does not exist in the extension source..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.PackageRestoreWaitMessage">
+            <summary>
+              Looks up a localized string similar to Configuring the product to restore extensions on start....
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.PackageSource_Invalid">
+            <summary>
+              Looks up a localized string similar to The extension source does not belong to the collection of available sources..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.PackageUpdatedSuccessfully">
+            <summary>
+              Looks up a localized string similar to &apos;{0}&apos; updated successfully..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.ProjectNotSpecified">
+            <summary>
+              Looks up a localized string similar to No project was specified..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.ReinstallProjectPackage">
+            <summary>
+              Looks up a localized string similar to Reinstalling &apos;{0}&apos; in project &apos;{1}&apos;..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.ReinstallSolutionPackage">
+            <summary>
+              Looks up a localized string similar to Reinstalling &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.RequestRestartToCompleteUninstall">
+            <summary>
+              Looks up a localized string similar to You must restart Visual Studio in order for the changes to take effect. The following extensions require a restart: {0}..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.RestartNow">
+            <summary>
+              Looks up a localized string similar to Restart Now.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.RestoreButtonLabel">
+            <summary>
+              Looks up a localized string similar to _Restore.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.ShowDetails">
+            <summary>
+              Looks up a localized string similar to Show Details.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.SolutionDirectoryNotAvailable">
+            <summary>
+              Looks up a localized string similar to Unable to locate the solution directory. Please ensure that the solution has been saved..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.SolutionNotAvailable">
+            <summary>
+              Looks up a localized string similar to The current environment does not have a solution loaded..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.TemplateWizard_ErrorDialogTitle">
+            <summary>
+              Looks up a localized string similar to Package Installation Error.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.TemplateWizard_ExtensionManagerError">
+            <summary>
+              Looks up a localized string similar to Error accessing Extension Manager..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.TemplateWizard_FailedToInstallPackage">
+            <summary>
+              Looks up a localized string similar to Could not add all required extensionы to the product. The following extensions failed to install from &apos;{0}&apos;:.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.TemplateWizard_InvalidExtensionId">
+            <summary>
+              Looks up a localized string similar to The project template has a reference to a missing Extension. Could not find an Extension with ID &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.TemplateWizard_InvalidPackageElementAttributes">
+            <summary>
+              Looks up a localized string similar to The project template lists one or more packages with missing, empty, or invalid values for the &quot;id&quot; or &quot;version&quot; attributes. Both attributes are required and must have valid values..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.TemplateWizard_InvalidRegistryValue">
+            <summary>
+              Looks up a localized string similar to The project template has a reference to a missing Registry value. Could not find a Registry key with name &apos;{0}&apos; under &apos;{1}&apos;..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.TemplateWizard_InvalidRepositoryAttribute">
+            <summary>
+              Looks up a localized string similar to The &quot;repository&quot; attribute of the package element has an invalid value: &apos;{0}&apos;. Valid values are: &apos;template&apos; or &apos;extension&apos;..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.TemplateWizard_InvalidWizardRunKind">
+            <summary>
+              Looks up a localized string similar to This template wizard can only be applied to single-project or project-item templates..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.TemplateWizard_MissingExtensionId">
+            <summary>
+              Looks up a localized string similar to The project template is configured to use an Extension-specific package repository but the Extension ID has not been specified. Use the &quot;repositoryId&quot; attribute to specify the Extension ID..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.TemplateWizard_MissingRegistryKeyName">
+            <summary>
+              Looks up a localized string similar to The project template is configured to use a Registry-provided package repository but the Registry value name has not been specified. Use the &quot;keyName&quot; attribute to specify the Registry value..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.TemplateWizard_PackageInstallStatus">
+            <summary>
+              Looks up a localized string similar to Adding {0}.{1} to project....
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.TemplateWizard_RegistryKeyError">
+            <summary>
+              Looks up a localized string similar to The project template is configured to use a Registry-provided package repository but there was an error accessing Registry key &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.TemplateWizard_VersionConflict">
+            <summary>
+              Looks up a localized string similar to Attempting to install version &apos;{1}&apos; of &apos;{0}&apos; but the project already includes a different version. Skipping....
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.UnableToFindPackageFromSource">
+            <summary>
+              Looks up a localized string similar to Unable to find extension &apos;{0}&apos; version &apos;{1}&apos; from the source &apos;{2}&apos;..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.UnknownPackage">
+            <summary>
+              Looks up a localized string similar to Unable to find extension &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.UnknownPackageInProject">
+            <summary>
+              Looks up a localized string similar to Unable to find extension &apos;{0}&apos; in &apos;{1}&apos;..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.VisualStudioExpressForWindows8SourceName">
+            <summary>
+              Looks up a localized string similar to Windows 8 Packages.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.Warning_DirectoryNotEmpty">
+            <summary>
+              Looks up a localized string similar to Directory &apos;{0}&apos; is not empty. Skipping....
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.Warning_FailedToAddBindingRedirects">
+            <summary>
+              Looks up a localized string similar to Failed to generate binding redirects for &apos;{0}&apos;. {1}.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.Warning_FailedToDeleteMarkedPackageDirectories">
+            <summary>
+              Looks up a localized string similar to Failed to remove extension directories that were marked for deletion on Visual Studio restart: {0}.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.Warning_FailedToDeleteMarkedPackageDirectory">
+            <summary>
+              Looks up a localized string similar to Failed to remove extension directory &apos;{0}&apos; that was marked for deletion on Visual Studio restart..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.Warning_FailedToFindMatchForRemoveReference">
+            <summary>
+              Looks up a localized string similar to Failed to find match for removing reference &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.Warning_FailedToMarkPackageDirectoryForDeletion">
+            <summary>
+              Looks up a localized string similar to Failed to mark extension directory &apos;{0}&apos; for deletion on Visual Studio restart: {1}.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.Warning_FileAlreadyExists">
+            <summary>
+              Looks up a localized string similar to &apos;{0}&apos; already exists. Skipping....
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.Warning_NoExactMatchForReference">
+            <summary>
+              Looks up a localized string similar to No exact match found for removing reference &apos;{0}&apos;. Trying case-insensitive search....
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.Warning_PackageNotReferencedByAnyProject">
+            <summary>
+              Looks up a localized string similar to Extension {0} of version {1} is not referenced by any product..
+            </summary>
+        </member>
+        <member name="P:JetBrains.Application.Extensions.VsResources.Warning_RollingBack">
+            <summary>
+              Looks up a localized string similar to Install failed. Rolling back....
+            </summary>
+        </member>
+        <member name="M:JetBrains.Application.Extensions.IDeleteOnRestartManager.GetPackageDirectoriesMarkedForDeletion">
+            <summary>
+            Gets the list of package directories that are still need to be deleted in the
+            local package repository.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Application.Extensions.IDeleteOnRestartManager.MarkPackageDirectoryForDeletion(NuGet.IPackage)">
+            <summary>
+            Marks package directory for future removal if it was not fully deleted during the normal uninstall process
+            if the directory does not contain any added or modified files.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Application.Extensions.IDeleteOnRestartManager.ClearPackageDirectoryForDeletion(NuGet.IPackage)">
+            <summary>
+            Clear mark that package directory for future removal
+            </summary>
+        </member>
+        <member name="M:JetBrains.Application.Extensions.IDeleteOnRestartManager.DeleteMarkedPackageDirectories">
+            <summary>
+            Attempts to remove marked package directories that were unable to be fully deleted during the original uninstall.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Application.Extensions.DeleteOnRestartManager.MarkPackageDirectoryForDeletion(NuGet.IPackage)">
+            <summary>
+            Marks package directory for future removal if it was not fully deleted during the normal uninstall process
+            if the directory does not contain any added or modified files.
+            The package directory will be marked by an adjacent *directory name*.deleteme file.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Application.Extensions.DeleteOnRestartManager.ClearPackageDirectoryForDeletion(NuGet.IPackage)">
+            <summary>
+            Clear mark that package directory for future removal
+            </summary>
+        </member>
+        <member name="M:JetBrains.Application.Extensions.DeleteOnRestartManager.DeleteMarkedPackageDirectories">
+            <summary>
+            Attempts to remove package directories that were unable to be fully deleted during the original uninstall.
+            These directories will be marked by an adjacent *directory name*.deleteme files in the local package repository.
+            If the directory removal is successful, the .deleteme file will also be removed.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Application.Extensions.FallbackRepository">
+            <summary>
+            Represents a package repository that implements a dependency provider. 
+            </summary>
+        </member>
+        <member name="F:JetBrains.Application.Extensions.OptionsPages.PackageSourceEditorDialog.components">
+            <summary>Required designer variable</summary>
+        </member>
+        <member name="M:JetBrains.Application.Extensions.OptionsPages.PackageSourceEditorDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Application.Extensions.OptionsPages.PackageSourceEditorDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Application.Extensions.ProductPackageManager.ReinstallPackage(System.String,System.Boolean,System.Boolean,NuGet.ILogger,JetBrains.Application.Extensions.IPackageOperationEventListener)">
+            <summary>
+            Reinstall the specified package in all projects.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Application.Extensions.ProductPackageManager.ReinstallPackage(NuGet.IProjectManager,System.String,System.Boolean,System.Boolean,NuGet.ILogger)">
+            <summary>
+            Reinstall the specified package in the specified project.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Application.Extensions.ProductPackageManager.ReinstallPackageInProject(NuGet.IProjectManager,NuGet.IPackage,System.Boolean,System.Boolean,NuGet.ILogger)">
+            <summary>
+            Reinstall the specified package in the specified project, taking care of logging too.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Application.Extensions.ProductPackageManager.IsProjectLevel(NuGet.IPackage)">
+            <summary>
+            Check to see if this package applies to a project based on 2 criteria:
+            1. The package has project content (i.e. content that can be applied to a project lib or content files)
+            2. The package is referenced by any other project
+            3. The package has at least one dependecy
+            
+            This logic will probably fail in one edge case. If there is a meta package that applies to a project
+            that ended up not being installed in any of the projects and it only exists at solution level.
+            If this happens, then we think that the following operation applies to the solution instead of showing an error.
+            To solve that edge case we'd have to walk the graph to find out what the package applies to.
+            
+            Technically, the third condition is not totally accurate because a solution-level package can depend on another 
+            solution-level package. However, doing that check here is expensive and we haven't seen such a package. 
+            This condition here is more geared towards guarding against metadata packages, i.e. we shouldn't treat metadata packages 
+            as solution-level ones.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Application.Extensions.ProductPackageManager.RunSolutionAction(System.Action)">
+            <summary>
+            Runs the specified action and rolls back any installed packages if on failure.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Application.Extensions.ProductPackageManager.RunActionOnProjects(System.Collections.Generic.IEnumerable{JetBrains.Application.IApplicationDescriptor},System.Action{JetBrains.Application.IApplicationDescriptor},NuGet.ILogger,JetBrains.Application.Extensions.IPackageOperationEventListener)">
+            <summary>
+            Runs the action on projects and log any error that may occur.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Application.Extensions.ProductPackageManager.RunProjectAction(NuGet.IProjectManager,System.Action)">
+            <summary>
+            Runs action on the project manager and rollsback any package installs if it fails.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Application.Extensions.ProductPackageManagerFactory.CreatePackageManager(NuGet.IPackageRepository,System.Boolean)">
+            <summary>
+            Creates an VsPackageManagerInstance that uses the Active Repository (the repository selected in the console drop down) and uses a fallback repository for dependencies.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Application.Extensions.ProductPackageManagerFactory.CreateFallbackRepository(NuGet.IPackageRepository)">
+            <summary>
+            Creates a FallbackRepository with an aggregate repository that also contains the primaryRepository.
+            </summary>
+        </member>
+    </members>
+</doc>

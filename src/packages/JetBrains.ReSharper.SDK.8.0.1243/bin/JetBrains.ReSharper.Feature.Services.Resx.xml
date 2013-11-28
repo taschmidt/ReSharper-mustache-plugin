@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JetBrains.ReSharper.Feature.Services.Resx</name>
+    </assembly>
+    <members>
+        <member name="M:JetBrains.ReSharper.Psi.Resx.Services.ResxResourceServiceBase.GetBaseCultureFile(JetBrains.ReSharper.Psi.IPsiSourceFile,System.String)">
+            <summary>
+            Gets base culture
+            </summary>
+            <param name="projectFile"></param>
+            <param name="baseCultureName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JetBrains.ReSharper.Psi.Resx.Services.ResxResourceServiceBase.GetResourceWithCulture(JetBrains.ReSharper.Psi.IPsiSourceFile,System.String)">
+            <summary>
+            Gets base culture
+            </summary>
+            <param name="resourceFile"></param>
+            <param name="cultureName"><c>null</c> for default culture</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
