@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JetBrains.ReSharper.SolutionAnalysisTests</name>
+    </assembly>
+    <members>
+        <member name="M:JetBrains.ReSharper.SolutionAnalysisTests.Daemon.FilesToRehighlightTestCs.TestMoveClassToAnotherProject1">
+            Moving a class from a project which is referenced by the client to a project which is not referenced
+            (client class IS to be rehighlighted)
+        </member>
+        <member name="M:JetBrains.ReSharper.SolutionAnalysisTests.Daemon.FilesToRehighlightTestCs.TestMoveClassToAnotherProject2">
+            Moving a class from one project to another project, both of them are referenced by the client
+            (client class IS NOT to be rehighlighted)
+        </member>
+        <member name="M:JetBrains.ReSharper.SolutionAnalysisTests.Daemon.FilesToRehighlightTestCs.TestMoveClassToAnotherProject3">
+            Moving an internal class from the client's project to another project
+            (client class IS to be rehighlighted)
+        </member>
+        <member name="M:JetBrains.ReSharper.SolutionAnalysisTests.Daemon.FilesToRehighlightTestCs.TestMoveClassToAnotherProject4">
+            Moving an internal class from the client's project to a project with "InternalsVisibleTo"
+            (client class IS NOT to be rehighlighted)
+        </member>
+        <member name="M:JetBrains.ReSharper.SolutionAnalysisTests.Daemon.FilesToRehighlightTestCs.TestMoveClassToAnotherProject5">
+            Moving a public class from the client's project to another project
+            (client class IS NOT to be rehighlighted)
+        </member>
+        <member name="M:JetBrains.ReSharper.SolutionAnalysisTests.Daemon.FilesToRehighlightTestCs.TestMoveClassToAnotherProject6">
+            Moving a public class with an internal memember from the client's project to another project
+            (client class IS to be rehighlighted)
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JetBrains.ReSharper.HtmlTests</name>
+    </assembly>
+    <members>
+        <member name="T:ReSharperTestEnvironmentAssembly_HtmlTests">
+            <summary>
+            Must be in the global namespace.
+            </summary>
+        </member>
+        <member name="P:JetBrains.ReSharper.HtmlTests.HtmlTestWithTextControlBase.ShowCaret">
+            <summary>
+            How to show caret position
+            </summary>
+        </member>
+    </members>
+</doc>

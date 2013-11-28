@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JetBrains.ReSharper.Feature.Services.Html.Javascript</name>
+    </assembly>
+    <members>
+        <member name="T:JetBrains.ReSharper.Features.Web.JavaScriptXmlDocReferenceToFile.CodeCompletion.AutopopupInDocCommentReference">
+            <summary>
+            start automatic code completion in xxx["dd"] expression
+            </summary>
+        </member>
+    </members>
+</doc>

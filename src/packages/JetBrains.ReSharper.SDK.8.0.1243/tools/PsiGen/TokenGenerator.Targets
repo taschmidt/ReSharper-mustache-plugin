@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- Enables support for the “TokenGenerator” build action in the projects. -->
+
+  <PropertyGroup>
+    <TokenGeneratorHomeDir>$(ProductHomeDir)/Psi.Features/Tools/PsiGen/ToolsBinary</TokenGeneratorHomeDir>
+  </PropertyGroup>
+  <Import Project="TokenGenerator.Tasks" />
+
+  <ItemGroup>
+    <!-- Add to the Visual Studio Build Action list on the files. -->
+    <AvailableItemName Include="TokenGenerator" />
+    <!-- Calculate output. -->
+    <TokenGeneratorOutput Include="@(TokenGenerator->'%(OutputFile)')">
+      <AutoGen>True</AutoGen>
+    </TokenGeneratorOutput>
+  </ItemGroup>
+
+  <!-- Dispatch. -->
+  <PropertyGroup>
+    <GenerateTokenGeneratorDependsOn>
+      $(GenerateTokenGeneratorDependsOn);
+      GenerateTokenGenerator_AddToItemGroups;
+      GenerateTokenGenerator_UndupeCompile;
+      GenerateTokenGenerator_Generate;
+    </GenerateTokenGeneratorDependsOn>
+    <CleanTokenGeneratorDependsOn>
+      $(CleanTokenGeneratorDependsOn);
+      CleanTokenGenerator_Clean;
+    </CleanTokenGeneratorDependsOn>
+  </PropertyGroup>
+
+  <!-- Plugin. -->
+  <PropertyGroup>
+    <!-- Plug into the build process before the Compile target executes. -->
+    <PrepareResourcesDependsOn>
+      $(GenerateTokenGeneratorDependsOn);
+      $(PrepareResourcesDependsOn);
+    </PrepareResourcesDependsOn>
+    <!-- Clean the files, this enables proper Rebuild. -->
+    <CleanDependsOn>
+      $(CleanDependsOn);
+      $(CleanTokenGeneratorDependsOn);
+    </CleanDependsOn>
+  </PropertyGroup>
+
+  <!-- Produces the list of the output files for needs-rebuild check and Clean. -->
+  <Target Name="GenerateTokenGenerator_AddToItemGroups">
+    <ItemGroup>
+      <!-- Use the result in the build process. -->
+      <Compile Include="@(TokenGeneratorOutput)" />
+
+      <!-- Support incremental clean for our files. -->
+      <FileWrites Include="@(TokenGeneratorOutput)" />
+    </ItemGroup>
+  </Target>
+
+  <!-- After adding the outputs to the @(Compile) group, we might encounter duplicates — remove them. -->
+  <Target Name="GenerateTokenGenerator_UndupeCompile">
+    <ItemGroup>
+      <CompileUnfiltered Remove="%(CompileUnfiltered.Identity)" />
+      <CompileUnfiltered Include="%(Compile.FullPath)" />
+      <Compile Remove="%(Compile.Identity)" />
+    </ItemGroup>
+    <RemoveDuplicates Inputs="@(CompileUnfiltered)">
+      <Output TaskParameter="Filtered" ItemName="Compile" />
+    </RemoveDuplicates>
+  </Target>
+
+  <!-- The generation itself. -->
+  <ItemGroup>
+    <!-- Sources. -->
+    <GenerateTokenGeneratorInputs Include="@(TokenGenerator)" />
+    <!-- Tool files. -->
+    <GenerateTokenGeneratorInputs Include="$(TokenGeneratorHomeDir)/TokenGenerator.exe" />
+    <GenerateTokenGeneratorInputs Include="$(TokenGeneratorHomeDir)/TokenGenerator.Targets" />
+    <GenerateTokenGeneratorInputs Include="$(TokenGeneratorHomeDir)/TokenGenerator.Tasks" />
+  </ItemGroup>
+  <Target Name="GenerateTokenGenerator_Generate" Inputs="@(GenerateTokenGeneratorInputs)" Outputs="@(TokenGeneratorOutput)" Condition="'@(TokenGenerator)' != ''">
+    <TokenGenerator InputFile="%(TokenGenerator.FullPath)" OutputFile="%(OutputFile)" />
+    <Message Text="%(TokenGenerator.FullPath) --(*)--> %(OutputFile)" />
+  </Target>
+
+  <!-- Cleans the generated files. -->
+  <Target Name="CleanTokenGenerator_Clean">
+    <Delete Files="@(TokenGeneratorOutput)" TreatErrorsAsWarnings="true"  />
+  </Target>
+
+</Project>

@@ -1,0 +1,264 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JetBrains.Platform.ReSharper.Util.Tests</name>
+    </assembly>
+    <members>
+        <member name="T:JetBrains.Util.Tests.DataFlow.TestBinding">
+            <summary>
+            Tests basic func of the <see cref="T:JetBrains.DataFlow.IProperty`1"/> family.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Util.Tests.DataFlow.TestBinding.SignalsTypedToSimple">
+            <summary>
+            Binding from a typed signal into a simple (bool) one.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Util.Tests.DataFlow.TestBinding.SignalsTypedToTyped">
+            <summary>
+            Typed to typed, with and without conversion and filtering.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Util.Tests.DataFlow.TestBinding.SimpleSignals">
+            <summary>
+            Bind <see cref="T:JetBrains.DataFlow.ISimpleSignal"/>s together.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Util.Tests.DataFlow.TestBinding.SwitchingProperty">
+            <summary>
+            On a live binding, a bound property is replaced.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Util.Tests.DataFlow.TestICollectionEvents">
+            <summary>
+            Tests basic func of the <see cref="T:JetBrains.DataFlow.ICollectionEvents`1"/>-derived classes family.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Util.Tests.DataFlow.TestICollectionEvents.CollectionAndListEnumerators">
+            <summary>
+            In the list and in the collection items go in the same order when calling Add (their impls are different, so that's a thing to check).
+            </summary>
+        </member>
+        <member name="M:JetBrains.Util.Tests.DataFlow.TestListBridge.ModifyList(JetBrains.DataFlow.IListEvents{System.Int32})">
+            <summary>
+            An ulility function for performing a random set of operations over the list.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Util.Tests.DataFlow.TestListBridge.MakeNewValue(System.Collections.Generic.ICollection{System.Int32})">
+            <summary>
+            Generates a new random value not yet present in the collection.
+            </summary>
+            <param name="listA"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JetBrains.Util.Tests.DataFlow.TestListBridge.CreateOddPrintingBridge(JetBrains.DataFlow.Lifetime,JetBrains.DataFlow.IListEvents{System.Int32},JetBrains.DataFlow.IListEvents{System.String})">
+            <summary>
+            Creates an int-to-string bridge that passes off items only.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Util.Tests.DataFlow.TestListBridge.T060_AttachDetach">
+            <summary>
+            Here we set up the binding on a non-empty collection, and then destroy it on a non-empty collection.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Util.Tests.DataFlow.TestProperty">
+            <summary>
+            Tests basic func of the <see cref="T:JetBrains.DataFlow.IProperty`1"/> family.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Util.Tests.DataFlow.TestProperty.BeforeChange">
+            <summary>
+            All but exceptions.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Util.Tests.DataFlow.TestProperty.EnumValidatorAndThrowBeforeChanged">
+            <summary>
+            Constrain to enum values.
+            Check how throwing an exception from BeforeChanged works.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Util.Tests.DataFlow.TestProperty.IsolationSinks">
+            <summary>
+            Whenever an evant handler throws up, the others should execute anyway.
+            Applies to:
+            <see cref="P:JetBrains.DataFlow.IProperty`1.Change"/>
+            </summary>
+        </member>
+        <member name="M:JetBrains.Util.Tests.DataFlow.TestProperty.Nullable">
+            <summary>
+            Nullable flag in the property ctor.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Util.Tests.DataFlow.TestProperty.OnSimpleEvents">
+            <summary>
+            Tests that simple events (see inside) indeed do fire.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Util.Tests.DataFlow.TestProperty.Readonly">
+            <summary>
+            Limit writers.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Util.Tests.DataFlow.TestProperty.UnsinkInsideSink">
+            <summary>
+            The firer must be ready for changes in the list of handlers.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Util.Tests.DataFlow.TestPropertyEx">
+            <summary>
+            Tests <see cref="T:JetBrains.DataFlow.IProperty`1"/> extension methods.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Util.Tests.DataFlow.TestSignal.EventsIsolation">
+            <summary>
+            Whenever an evant handler throws up, the others should execute anyway.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Util.Tests.DataFlow.TestSignal.LazyProperty">
+            <summary>
+            Ensures that the underlying property is created, and does that lazily.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Platform.Util.Tests.Caches.DirectMappedCacheTest.IdKey.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type. 
+            </summary>
+            <returns>
+            A hash code for the current <see cref="T:System.Object"/>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="T:JetBrains.Platform.TestUtil.DataStructures.TestCow">
+            <summary>
+            Tests helper functions for copy-on-write arrays.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Platform.TestUtil.DataStructures.TestCow.Except">
+            <summary>
+            <see cref="M:JetBrains.Util.CollectionUtil.ArrayExcept``1(``0[],``0)"/>
+            </summary>
+        </member>
+        <member name="M:JetBrains.Platform.TestUtil.DataStructures.TestCow.Union">
+            <summary>
+            <see cref="M:JetBrains.Util.CollectionUtil.ArrayUnion``1(``0[],``0)"/>
+            </summary>
+        </member>
+        <member name="M:DataStructures.TestCyclicBuffer.T020_ReadPerByteWritePerByte">
+            <summary>
+            Writing byte-by-byte, checking special cases when _end gets equal to _storage.Length.
+            </summary>
+        </member>
+        <member name="M:DataStructures.TestStreamPipe.T010_Simple">
+            <summary>
+            Basics.
+            </summary>
+        </member>
+        <member name="M:DataStructures.TestStreamPipe.T020_ReaderWaits">
+            <summary>
+            Writer is slow, reader should wait correctly.
+            </summary>
+        </member>
+        <member name="M:DataStructures.TestStreamPipe.T030_Incremental">
+            <summary>
+            If we write and read in portions, make sure the buffer fits a portion not the whole load.
+            </summary>
+        </member>
+        <member name="M:DataStructures.TestStreamPipe.T040_XmlDocument">
+            <summary>
+            Pumps XMLs thru the pipe.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Util.Test.QualifiedNameTrieTest">
+            <summary>
+            Summary description for QualifiedNameTrieTest.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Platform.TestUtil.Misc.TestExceptionRenderer.InnerBeforeOuter">
+            <summary>
+            Simple case ordering (outer.inner straight case): in message, outer goes before inner; in full body, inner stack trace goes before outer.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Platform.TestUtil.Misc.TestExceptionRenderer.LoaderExceptionsPresent">
+            <summary>
+            Some exceptions have their inners in nonstandard locations, they must also be dumped.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Platform.TestUtil.Misc.TestExceptionRenderer.MultipleOccurences">
+            <summary>
+            Same exception occurs multiple times in the exceptions tree.
+            Might happen to CompoundExceptions when one test logger records first the real exceptions, and then the output of another test logger accumulated as a compound exception.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Util.XmlExternalizationUtilTest.EmptyArrayData">
+            <summary>
+            Modeled after CSharpUsingsSettings::MandatoryImports.
+            </summary>
+        </member>
+        <member name="T:JetBrains.UI.Tests.RichTextTests.RichTextBlockFormatterTest">
+            <summary>
+            Tests <see cref="T:JetBrains.UI.RichText.RichTextBlockFormatter"/>.
+            </summary>
+        </member>
+        <member name="M:JetBrains.UI.Tests.RichTextTests.RichTextBlockFormatterTest.FormatBlock(JetBrains.UI.RichText.RichTextBlock,System.Drawing.Size,JetBrains.UI.IGraphicsContainer)">
+            <summary>
+            Formats the block to the given constraint.
+            After that, makes some basic checks on the formatting process.
+            </summary>
+        </member>
+        <member name="M:JetBrains.UI.Tests.RichTextTests.RichTextBlockFormatterTest.CheckIfFits(JetBrains.UI.RichText.RichTextBlock,System.Drawing.Size,JetBrains.UI.IGraphicsContainer)">
+            <summary>
+            Checks whether the rich text block fits its width into the given constraint, but does not fail if it's just because some chars are too wide.
+            </summary>
+        </member>
+        <member name="M:JetBrains.UI.Tests.RichTextTests.RichTextBlockFormatterTest.DesiredWidthIsTooSmall">
+             <summary>
+             A QX-based test that checks whether formatting the RTB against its unconstrained desired size causes it to reflow.
+             No reflow should happen.
+             </summary>
+             <remarks>
+             PROBLEM
+            Text to format:
+            [ResourceDictionary Resources], [Brush Background], [DependencyProperty ActualHeightProperty], [DependencyProperty ActualWidthProperty], [double MaxWidth], [bool AllowDrop], [DependencyProperty AllowDropProperty], [DependencyProperty BackgroundProperty], [BitmapEffect BitmapEffect], [BitmapEffectInput BitmapEffectInput], : Use smart completion to show all
+            
+            renderParams:
+            {<RenderParams Font="[Font: Name=Tahoma, Size=11, Units=0, GdiCharSet=1, GdiVerticalFont=False]" FontStyle="Regular" NeutralForegroundColor="Color [Empty]" NeutralBackgroundColor="Color [Empty]" Trimming="EllipsisCharacter" Mnemonics="None" Padding="4" OverrideForegroundColor="Color [Empty]" OverrideBackgroundColor="Color [Empty]" Effect="None" EffectColor="Color [Empty]" TextRenderingMethod="Gdi" />}
+            
+            width 640 => 620x39
+            width 620 => 611x52
+             </remarks>
+        </member>
+        <member name="M:JetBrains.UI.Tests.RichTextTests.RichTextBlockFormatterTest.TerminalWhitespace">
+            <summary>
+            Checks whether the leading whitespace in the beginning of the line is kept when formatting, and that whitespace is discarded when breaking the line.
+            </summary>
+        </member>
+        <member name="T:JetBrains.UI.Tests.RichTextTests.RichTextBlockTest">
+            <summary>
+            Tests the <see cref="T:JetBrains.UI.RichText.RichTextBlock"/>.
+            </summary>
+        </member>
+        <member name="M:JetBrains.UI.Tests.RichTextTests.RichTextBlockTest.MultilineString">
+            <summary>
+            Check whether a rich-text-block is created correctly from a multiline string of rich or plain text.
+            All the CRLF, CR and LF characters in the string should result in the block strings produced.
+            </summary>
+        </member>
+        <member name="T:JetBrains.UI.Tests.RichTextTests.RichTextTest">
+            <summary>
+            Tests the <see cref="T:JetBrains.UI.RichText.RichText"/> class
+            </summary>
+        </member>
+        <member name="T:JetBrains.Util.Test.EventDispatcherTest">
+            <summary>
+            Tests event dispatching
+            </summary>
+        </member>
+        <member name="M:JetBrains.Platform.TestUtil.Threading.TestJetDispatcher.NoPostMessageOnEveryBeginInvoke">
+            <summary>
+            Call <see cref="M:JetBrains.Threading.JetDispatcher.BeginInvoke(System.String,System.Action)"/> multiple times.
+            FAIL: a Windows message is posted for every BeginInvoke.
+            PASS: actions to execute are stored on the custom queue, only one message is posted.
+            </summary>
+        </member>
+    </members>
+</doc>

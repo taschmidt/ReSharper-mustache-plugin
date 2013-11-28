@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JetBrains.Platform.ReSharper.VisualStudio.v11</name>
+    </assembly>
+    <members>
+        <member name="T:JetBrains.VsIntegration.DevEleven.Src.Hacks.SuppressOwnerlessFloatingWindows">
+            <summary>
+            <para>VS11 added a feature which allows floating windows to have a NULL owner (called "independent floating" in settings classes and "not "always stay on top"" in UI).</para>
+            <para>Unfortunately, VS10-derived implementation relies on owner HWND in cases related to window activation and command target activation. As WPF isn't a good MSO Component citizen, it notifies its owner window with NOTIFYOWNERACTIVATE ("NOTIFYOWNERACTIVATE{A982313C-756C-4da9-8BD0-0C375A45784B}" registered message) at Microsoft.VisualStudio.PlatformUI.Shell.Controls.CustomChromeWindow::WmActivate. Also, by the same reason, its Microsoft.VisualStudio.PlatformUI.Shell.Controls.FloatingWindow+MnemonicForwardingKeyboardInputSink::OnMnemonic relays keypresses to the HwndSource of the owner window.</para>
+            Our solution: suppress the feature, which makes the window always have an owner.
+            </summary>
+        </member>
+        <member name="T:JetBrains.VsIntegration.DevEleven.Src.Install.AssemblyBindingRedirectionsRegistryInstaller">
+            <summary>
+            Starting with VS11, assembly binding redirections for the VS application can be written to the Registry.
+            </summary>
+        </member>
+        <member name="M:JetBrains.VsIntegration.DevEleven.Src.Install.AssemblyBindingRedirectionsRegistryInstaller.GenerateBindingRedirectionSectionGuid(JetBrains.Application.Install.Installer,JetBrains.Metadata.Utils.AssemblyNameInfo)">
+            <summary>
+            Stable GUID for identifying the Registry section for our assembly.
+            </summary>
+        </member>
+        <member name="T:JetBrains.VsIntegration.DevEleven.Src.TextControl.VsTextControlDevTenIncrementalSearchClientVs11Plus">
+            <summary>
+            VS11+ client (NOTE: in VS11+ this <see cref="T:Microsoft.VisualStudio.Text.IncrementalSearch.IIncrementalSearch"/> implementation is present, but is not active).
+            </summary>
+        </member>
+        <member name="F:JetBrains.VsIntegration.DevEleven.Src.TextControl.VsTextControlDevTenIncrementalSearchClientVs11Plus.IsIncrementalSearchActive">
+            <summary>
+            Borrowed from <see cref="T:Microsoft.VisualStudio.Editor.Implementation.Find.FindManagerDataSource.PropertyNames"/>, which unfortunately has a nonpublic outer class.
+            </summary>
+        </member>
+        <member name="M:JetBrains.VsIntegration.DevEleven.Theming.VS11StatusBarColorsManager.CreateLiveStatusBarColors(JetBrains.DataFlow.Lifetime)">
+            <summary>
+            Creates a pair of live properties with background and foreground colors for the status bar controls
+            </summary>
+            <param name="lifetime"></param>
+            <returns>first is Background, second is Foreground</returns>
+        </member>
+        <member name="P:JetBrains.VsIntegration.DevEleven.Theming.VS11StatusBarColorsManager.CurrentStatusBarColors">
+            <summary>
+            First is background, Second is foreground
+            </summary>
+        </member>
+    </members>
+</doc>

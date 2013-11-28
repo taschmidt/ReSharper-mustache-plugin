@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JetBrains.ReSharper.FeaturesTests</name>
+    </assembly>
+    <members>
+        <member name="F:JetBrains.ReSharper.FeaturesTests.InplaceRefactorings.ShowChangeForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:JetBrains.ReSharper.FeaturesTests.InplaceRefactorings.ShowChangeForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:JetBrains.ReSharper.FeaturesTests.InplaceRefactorings.ShowChangeForm.InitializeComponent(JetBrains.UI.Icons.IThemedIconManager)">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+            <param name="themedIconManager"> </param>
+        </member>
+    </members>
+</doc>

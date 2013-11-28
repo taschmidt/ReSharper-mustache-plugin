@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JetBrains.Platform.ReSharper.Shell.Tests</name>
+    </assembly>
+    <members>
+        <member name="T:JetBrains.TestShell.Subsystem.DataFlowExTest">
+            <summary>
+            Tests the shell-specific extensions to DF entities.
+            </summary>
+        </member>
+        <member name="T:JetBrains.TestShell.Subsystem.QueueingTestBase">
+            <summary>
+            Tests for the common part of the <see cref="T:JetBrains.Threading.GroupingEvent"/> and <see cref="T:JetBrains.Threading.TimedActionsHost.TimedAction"/> behavior.
+            </summary>
+        </member>
+        <member name="M:JetBrains.TestShell.Subsystem.QueueingTestBase.Run(System.Action{JetBrains.DataFlow.Lifetime,JetBrains.Threading.IThreading})">
+            <summary>
+            Runs the test impl in presetup environment.
+            </summary>
+        </member>
+        <member name="M:JetBrains.TestShell.Subsystem.QueueingTestBase.Queue(JetBrains.DataFlow.Lifetime,JetBrains.Threading.IThreading,System.TimeSpan,System.Action)">
+            <summary>
+            Implementation-specific queueing — the queuer to test.
+            </summary>
+        </member>
+        <member name="M:JetBrains.TestShell.Subsystem.ReentrancyGuardTest.T000_Immediate">
+            <summary>
+            Non-deferred execution, allowed and not.
+            </summary>
+        </member>
+        <member name="M:JetBrains.TestShell.Subsystem.ReentrancyGuardTest.T010_Properties">
+            <summary>
+            Status properties under and outside execution.
+            </summary>
+        </member>
+        <member name="M:JetBrains.TestShell.Subsystem.ReentrancyGuardTest.T020_Queue">
+            <summary>
+            Async queueing.
+            </summary>
+        </member>
+        <member name="M:JetBrains.TestShell.Subsystem.ReentrancyGuardTest.T030_LiftGuard">
+            <summary>
+            Check lifting the exec constraint.
+            Take guard, lift guard inside it, then take inside it and so on.
+            </summary>
+        </member>
+        <member name="M:JetBrains.TestShell.Subsystem.ReentrancyGuardTest.T040_PumpQueue">
+            <summary>
+            Queues actions and executes them on-demand.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Shell.Tests.Settings.Storage.TestKeyPathComponents.TestCompareToRandom">
+            <summary>
+            Just purely random components.
+            Test that their comparison is the same as string ordinal comparison.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Shell.Tests.Settings.Storage.TestKeyPathComponents.TestCompareToScenarios">
+            <summary>
+            Compare strings which only differ in prefix char, which have common left part, etc.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:JetBrains.TestShell.Subsystem.Settings.StoreInterface.TestKeysAndEntries" -->
+        <member name="T:JetBrains.Shell.Tests.Settings.Store.TestLiveContextBoundStoreFiresChangesWhenMountsComeAndGo">
+            <summary>
+            When the set of mounting points changes in a live bound context, a change must be fired on the contents of the coming/going mount.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Shell.Tests.Settings.Store.TestLiveContextBoundStoreIsSoLive">
+            <summary>
+            The set of mounting points in a live bound context changes when new applicable mount points appear in the system.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Shell.Tests.Settings.EntriesWriter.TestEntriesWriterIncremental.Run_CheckXmlns(System.Xml.XmlElement)">
+            <summary>
+            Validate XMLNS: should all be pre-fabricated on the root element, otherwise all of the elements will be cluttered with tons of repeating XMLNS text declarations
+            </summary>
+        </member>
+        <member name="M:JetBrains.Shell.Tests.Settings.EntriesWriter.TestEntriesWriterIncremental.Run_CheckRoundtrip(System.Collections.Generic.Dictionary{System.String,System.Object},System.String)">
+            <summary>
+            Checks that the content we've just written really contains all of the entries we were intended to write.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Shell.Tests.Settings.EntriesWriter.TestEntriesWriterIncremental.Run_ValidateChangesAgainstXmlDoc(System.Action{System.Action{System.Xml.XmlReader}},System.Xml.XmlDocument,System.Collections.Generic.ICollection{System.String},System.Collections.Generic.ICollection{System.String},System.Collections.Generic.ICollection{System.String},System.Collections.Generic.IDictionary{System.String,System.Object},System.Xml.XmlNamespaceManager,JetBrains.Application.Settings.Storage.Persistence.EntriesReader)">
+            <summary>
+            In case when the old file could be loaded as a valid XML document, tries to replay modifications on it and validate the result.
+            </summary>
+        </member>
+        <member name="P:JetBrains.TestShell.Subsystem.Settings.EntriesWriter.Stage.IsNonrootXmlnsAllowed">
+            <summary>
+            <para>Whether XMLNS declarations are allowed besides the root element.</para>
+            <para>If the original file declares all of the needed namespaces, new ones MUST NOT appear on child elements.</para>
+            </summary>
+        </member>
+        <member name="M:JetBrains.Shell.Tests.Settings.TestLocationAwareXmlReader.CheckPositionsAgainstXmlDocument(System.String,JetBrains.Util.FileSystemPath)">
+            <summary>
+            Read the same XML file with XmlDocument. For each element from XmlReader, with its position locate an element in XmlDocument and make sure it's the same element.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Shell.Tests.Settings.TestLocationAwareXmlReader.CheckPositionsAgainstXmlDocument_CheckIsDescendantOf(System.Xml.XmlElement,JetBrains.Application.Settings.Storage.Persistence.LocationAwareXmlReader.NodePosition)">
+            <summary>
+            For the given position, ensures <see cref="M:JetBrains.Application.Settings.Storage.Persistence.LocationAwareXmlReader.NodePosition.IsDescendantOf(JetBrains.Application.Settings.Storage.Persistence.LocationAwareXmlReader.NodePosition)"/> is consistent.
+            </summary>
+            <param name="xmlElement">The XML element based on which the <paramref name="posXmlReader"/> offset is calculated.</param>
+            <param name="posXmlReader">Position of the current node.</param>
+        </member>
+        <member name="M:JetBrains.Shell.Tests.Settings.TestLocationAwareXmlReader.CheckPositionsLinearOrder(System.String,JetBrains.Util.FileSystemPath)">
+            <summary>
+            Collect positions of each node, then validate that positions sort in the same order as they're encountered in the XML document.
+            </summary>
+        </member>
+    </members>
+</doc>

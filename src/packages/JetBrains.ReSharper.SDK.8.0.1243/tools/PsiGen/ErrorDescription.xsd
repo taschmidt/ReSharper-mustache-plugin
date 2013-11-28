@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="XMLSchema1"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:element name="Errors" type="Errors"/>
+  
+  <xs:complexType name="Errors">
+    <xs:sequence>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="StaticSeverityGroups" maxOccurs="1" type="StaticSeverityGroups"/>
+        <xs:element name="SeverityConfiguration" maxOccurs="1"/>
+
+        <xs:element name="Error" type="Highlighting" />
+        <xs:element name="Warning" type="Highlighting" />
+        <xs:element name="Info" type="Highlighting" />
+        <xs:element name="LocalAndGlobal" />
+
+        <xs:element name="Error.QuickFixes" />
+        <xs:element name="Warning.QuickFixes" />
+        <xs:element name="Info.QuickFixes" />
+        <xs:element name="LocalAndGlobal.QuickFixes" />
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="baseClass" />
+    <xs:attribute name="usings" />
+    <xs:attribute name="language" type="Language" />
+    <xs:attribute name="configurableSeverityImplementationLanguage" type="Language" />
+  </xs:complexType>
+  
+  <xs:simpleType name="Language">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="C#"/>
+      <xs:enumeration value="VB"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="StaticSeverityGroups">
+    <xs:sequence>
+      <xs:element name="Group" type="StaticSeverityGroup" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="StaticSeverityGroup">
+    <xs:attribute name="name" use="required" />
+    <xs:attribute name="key" use="required" />
+  </xs:complexType>
+  
+  <xs:complexType name="Highlighting">
+    <xs:sequence>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Parameter" type="Parameter" />
+        <xs:element name="Range" maxOccurs ="1" />
+        <xs:element name="Message" minOccurs="1" maxOccurs ="1" type="Message" />
+        <xs:element name="CustomCode" maxOccurs ="1" />
+        <xs:element name="NavigationOffset" maxOccurs ="1" />
+        <xs:element name="Behavour" maxOccurs ="1" type="Behavior" />
+        <xs:element name="IsValid" maxOccurs ="1" />
+        <xs:element name="QuickFix" type="QuickFix"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="name" use="required" />
+    <xs:attribute name="ID" />
+    <xs:attribute name="language" />
+    <xs:attribute name="configurableSeverity" />
+    <xs:attribute name="externalConfigurableSeverity" />
+    <xs:attribute name="staticGroup" />
+    <xs:attribute name="compilerGroup" />
+  </xs:complexType>
+
+  <xs:complexType name="QuickFix">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name ="arguments" />
+      </xs:extension>
+    </xs:simpleContent>    
+  </xs:complexType>
+
+  <xs:complexType name="Parameter">
+    <xs:attribute name="type" use="required" />
+    <xs:attribute name="name" use="required" />
+    <xs:attribute name="isValid" type="ParameterIsValid" />
+  </xs:complexType>
+
+  <xs:simpleType name="ParameterIsValid">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="skip"/>
+      <xs:enumeration value="struct"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="Message">
+    <xs:sequence>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Argument" />
+        <xs:element name="PreCreate" maxOccurs="1" />
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="value" />
+  </xs:complexType>
+  
+  <xs:complexType name="Behavior">
+    <xs:attribute name="attributeID" />
+    <xs:attribute name="overlapResolvePolicy" />
+  </xs:complexType>
+</xs:schema>

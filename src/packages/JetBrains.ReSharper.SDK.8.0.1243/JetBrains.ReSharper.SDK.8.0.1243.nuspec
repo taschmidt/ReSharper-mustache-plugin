@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
+  <metadata minClientVersion="2.7">
+    <id>JetBrains.ReSharper.SDK</id>
+    <version>8.0.1243</version>
+    <title>JetBrains ReSharper SDK</title>
+    <authors>JetBrains</authors>
+    <owners>JetBrains</owners>
+    <projectUrl>http://confluence.jetbrains.com/display/NETCOM/ReSharper+Plugin+Development</projectUrl>
+    <iconUrl>http://resharper-plugins.jetbrains.com/Content/Images/packageReSharper.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>JetBrains ReSharper supports the plugins architecture, which enables third-party modules to extend its functionality using the public API.</description>
+    <releaseNotes />
+    <copyright>Copyright © JetBrains 2013</copyright>
+    <language />
+    <tags>JetBrains ReSharper SDK Plugin</tags>
+  </metadata>
+</package>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JetBrains.ReSharper.Intentions.Resx</name>
+    </assembly>
+    <members>
+        <!-- Badly formed XML comment ignored for member "M:JetBrains.ReSharper.I18n.Services.QuickFixes.CreateResourceItemFromUsageFix.#ctor(JetBrains.ReSharper.I18n.Services.Daemon.ResourceItemNotResolvedWarning)" -->
+    </members>
+</doc>
